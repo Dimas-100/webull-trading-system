@@ -5,11 +5,8 @@
 > systems are archived at git tag `archive/pre-rsi2-only-2026-09-29` (`docs/ARCHIVE.md`). The pre-rewrite
 > roadmap is in that tag's `docs/ROADMAP.md`.
 
-0. **A command-line interface (new direction, 2026-09-29).** One `webull-trading-system` command for the
-   things the scripts do today (verify connection, quotes, portfolio, dry-run order, backtest, suite,
-   status). Later focus: make it easy for other people to connect their own brokerage data and create
-   their own trading system — which means moving the personal constants (universe, lot size, caps,
-   schedule) out of code and into config. Not designed yet; starts with a spec.
+0. **The public onboarding kit lives in its own repo:** https://github.com/Dimas-100/ai-trading-kit (since
+   2026-09-30). This repo stays the owner's RSI2 system.
 
 1. **~20-trade real-book review, around 2026-10-02.** The trade-review skill over the real RSI2 round trips:
    live expectancy, win rate and hold vs the 20-year base rate (+0.84%/trade), slippage vs the next-open fill,

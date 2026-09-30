@@ -14,8 +14,9 @@ repo by running `python -m webull_web.feed_export` itself.
 > reference, not as financial advice and not as a supported product. Nothing here is a recommendation to
 > trade. If you run it, you are responsible for every order it sends.
 
-**Where this is going:** a command-line interface that lets other people connect their own brokerage data
-and build their own trading system on the same safety rails (see `docs/ROADMAP.md`).
+**Want to build something like this yourself?** Start with
+[ai-trading-kit](https://github.com/Dimas-100/ai-trading-kit): it connects your own brokerage to your AI
+assistant (read-only), then walks you through testing and practicing ideas with pretend money.
 
 > **Public repo note.** The build log, the per-feature design specs and plans, the proof-phase charter,
 > the backtest review archive and the trade journals are kept private. Paths in code comments and docs
