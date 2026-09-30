@@ -1,0 +1,774 @@
+{
+  "generated": "2026-09-10T23:21:10-04:00",
+  "spec": "docs/superpowers/specs/2026-09-10-sizing-stacking-study-design.md",
+  "window": "confirm",
+  "start": "2021-01-01",
+  "end": "2024-12-31",
+  "sessions": 1005,
+  "tag": "size1",
+  "start_equity": 100000.0,
+  "cells_run": [
+    "S6",
+    "B0",
+    "SPY"
+  ],
+  "signals": {
+    "total": 7652,
+    "in_window": 1358
+  },
+  "cells": {
+    "S6": {
+      "cell": "S6",
+      "sessions": 1005,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "start_equity": 100000.0,
+      "end_equity": 269669.21,
+      "total_return_pct": 169.67,
+      "cagr_pct": 28.234,
+      "max_drawdown_pct": 11.667,
+      "drawdown": {
+        "peak_date": "2022-01-04",
+        "peak_equity": 120764.07,
+        "trough_date": "2022-03-07",
+        "trough_equity": 106674.95
+      },
+      "calmar": 2.4201,
+      "worst_year": "2021",
+      "worst_year_pct": 18.163,
+      "yearly_returns_pct": {
+        "2021": 18.163,
+        "2022": 26.928,
+        "2023": 31.182,
+        "2024": 37.062
+      },
+      "months": 48,
+      "months_positive": 33,
+      "months_positive_pct": 68.75,
+      "mean_utilisation_pct": 71.522,
+      "trades_taken": 1021,
+      "trades_taken_by_book": {
+        "rsi2": 490,
+        "ibs": 531
+      },
+      "trades_skipped": {
+        "slots": 286,
+        "cash": 51
+      },
+      "trades_skipped_total": 337,
+      "max_open": 6,
+      "open_at_end": 6,
+      "book_monthly_correlation": 0.5207,
+      "data_notes": {
+        "missing_marks": 0,
+        "missing_mark_symbols": {},
+        "settled_off_calendar": 0,
+        "off_calendar_signals": 0
+      },
+      "monthly_equity": [
+        {
+          "date": "2021-01-29",
+          "equity": 100708.67
+        },
+        {
+          "date": "2021-02-26",
+          "equity": 99909.12
+        },
+        {
+          "date": "2021-03-31",
+          "equity": 106721.38
+        },
+        {
+          "date": "2021-04-30",
+          "equity": 110289.87
+        },
+        {
+          "date": "2021-05-28",
+          "equity": 115103.43
+        },
+        {
+          "date": "2021-06-30",
+          "equity": 112970.16
+        },
+        {
+          "date": "2021-07-30",
+          "equity": 116682.76
+        },
+        {
+          "date": "2021-08-31",
+          "equity": 118506.38
+        },
+        {
+          "date": "2021-09-30",
+          "equity": 114590.86
+        },
+        {
+          "date": "2021-10-29",
+          "equity": 118531.07
+        },
+        {
+          "date": "2021-11-30",
+          "equity": 112473.48
+        },
+        {
+          "date": "2021-12-31",
+          "equity": 118162.95
+        },
+        {
+          "date": "2022-01-31",
+          "equity": 114551.8
+        },
+        {
+          "date": "2022-02-28",
+          "equity": 113400.56
+        },
+        {
+          "date": "2022-03-31",
+          "equity": 115191.59
+        },
+        {
+          "date": "2022-04-29",
+          "equity": 111451.92
+        },
+        {
+          "date": "2022-05-31",
+          "equity": 122628.61
+        },
+        {
+          "date": "2022-06-30",
+          "equity": 115748.47
+        },
+        {
+          "date": "2022-07-29",
+          "equity": 130502.49
+        },
+        {
+          "date": "2022-08-31",
+          "equity": 136186.55
+        },
+        {
+          "date": "2022-09-30",
+          "equity": 131932.04
+        },
+        {
+          "date": "2022-10-31",
+          "equity": 145003.34
+        },
+        {
+          "date": "2022-11-30",
+          "equity": 153468.77
+        },
+        {
+          "date": "2022-12-30",
+          "equity": 149982.19
+        },
+        {
+          "date": "2023-01-31",
+          "equity": 152025.55
+        },
+        {
+          "date": "2023-02-28",
+          "equity": 152190.95
+        },
+        {
+          "date": "2023-03-31",
+          "equity": 154917.54
+        },
+        {
+          "date": "2023-04-28",
+          "equity": 167512.27
+        },
+        {
+          "date": "2023-05-31",
+          "equity": 168524.99
+        },
+        {
+          "date": "2023-06-30",
+          "equity": 183380.59
+        },
+        {
+          "date": "2023-07-31",
+          "equity": 198753.17
+        },
+        {
+          "date": "2023-08-31",
+          "equity": 196471.79
+        },
+        {
+          "date": "2023-09-29",
+          "equity": 191302.1
+        },
+        {
+          "date": "2023-10-31",
+          "equity": 190723.39
+        },
+        {
+          "date": "2023-11-30",
+          "equity": 194467.62
+        },
+        {
+          "date": "2023-12-29",
+          "equity": 196749.96
+        },
+        {
+          "date": "2024-01-31",
+          "equity": 196556.2
+        },
+        {
+          "date": "2024-02-29",
+          "equity": 214477.48
+        },
+        {
+          "date": "2024-03-28",
+          "equity": 221516.73
+        },
+        {
+          "date": "2024-04-30",
+          "equity": 222303.87
+        },
+        {
+          "date": "2024-05-31",
+          "equity": 229663.58
+        },
+        {
+          "date": "2024-06-28",
+          "equity": 234546.14
+        },
+        {
+          "date": "2024-07-31",
+          "equity": 243332.9
+        },
+        {
+          "date": "2024-08-30",
+          "equity": 260410.02
+        },
+        {
+          "date": "2024-09-30",
+          "equity": 263088.71
+        },
+        {
+          "date": "2024-10-31",
+          "equity": 266523.92
+        },
+        {
+          "date": "2024-11-29",
+          "equity": 284811.16
+        },
+        {
+          "date": "2024-12-31",
+          "equity": 269669.21
+        }
+      ],
+      "f": 0.16666666666666666,
+      "slots": 6,
+      "books": [
+        "rsi2",
+        "ibs"
+      ],
+      "fixed_size": null,
+      "cash_floor": 0.0,
+      "label": "RSI2 + IBS \u00b7 f=1/6",
+      "reference": false
+    },
+    "B0": {
+      "cell": "B0",
+      "sessions": 1005,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "start_equity": 100000.0,
+      "end_equity": 139693.69,
+      "total_return_pct": 39.69,
+      "cagr_pct": 8.741,
+      "max_drawdown_pct": 3.113,
+      "drawdown": {
+        "peak_date": "2022-01-04",
+        "peak_equity": 106659.51,
+        "trough_date": "2022-03-07",
+        "trough_equity": 103339.04
+      },
+      "calmar": 2.8078,
+      "worst_year": "2021",
+      "worst_year_pct": 6.379,
+      "yearly_returns_pct": {
+        "2021": 6.379,
+        "2022": 7.316,
+        "2023": 11.977,
+        "2024": 9.276
+      },
+      "months": 48,
+      "months_positive": 38,
+      "months_positive_pct": 79.17,
+      "mean_utilisation_pct": 17.452,
+      "trades_taken": 668,
+      "trades_taken_by_book": {
+        "rsi2": 668
+      },
+      "trades_skipped": {
+        "slots": 0,
+        "cash": 0
+      },
+      "trades_skipped_total": 0,
+      "max_open": 6,
+      "open_at_end": 6,
+      "book_monthly_correlation": null,
+      "data_notes": {
+        "missing_marks": 0,
+        "missing_mark_symbols": {},
+        "settled_off_calendar": 0,
+        "off_calendar_signals": 0
+      },
+      "monthly_equity": [
+        {
+          "date": "2021-01-29",
+          "equity": 100298.46
+        },
+        {
+          "date": "2021-02-26",
+          "equity": 100545.05
+        },
+        {
+          "date": "2021-03-31",
+          "equity": 102633.33
+        },
+        {
+          "date": "2021-04-30",
+          "equity": 102817.25
+        },
+        {
+          "date": "2021-05-28",
+          "equity": 104305.72
+        },
+        {
+          "date": "2021-06-30",
+          "equity": 103259.37
+        },
+        {
+          "date": "2021-07-30",
+          "equity": 105590.7
+        },
+        {
+          "date": "2021-08-31",
+          "equity": 105472.38
+        },
+        {
+          "date": "2021-09-30",
+          "equity": 103864.52
+        },
+        {
+          "date": "2021-10-29",
+          "equity": 104722.12
+        },
+        {
+          "date": "2021-11-30",
+          "equity": 103510.56
+        },
+        {
+          "date": "2021-12-31",
+          "equity": 106379.24
+        },
+        {
+          "date": "2022-01-31",
+          "equity": 106394.26
+        },
+        {
+          "date": "2022-02-28",
+          "equity": 105462.89
+        },
+        {
+          "date": "2022-03-31",
+          "equity": 105620.7
+        },
+        {
+          "date": "2022-04-29",
+          "equity": 105323.65
+        },
+        {
+          "date": "2022-05-31",
+          "equity": 107564.43
+        },
+        {
+          "date": "2022-06-30",
+          "equity": 106036.08
+        },
+        {
+          "date": "2022-07-29",
+          "equity": 109773.78
+        },
+        {
+          "date": "2022-08-31",
+          "equity": 112130.06
+        },
+        {
+          "date": "2022-09-30",
+          "equity": 110347.92
+        },
+        {
+          "date": "2022-10-31",
+          "equity": 111956.43
+        },
+        {
+          "date": "2022-11-30",
+          "equity": 113327.59
+        },
+        {
+          "date": "2022-12-30",
+          "equity": 114162.14
+        },
+        {
+          "date": "2023-01-31",
+          "equity": 115413.64
+        },
+        {
+          "date": "2023-02-28",
+          "equity": 115990.71
+        },
+        {
+          "date": "2023-03-31",
+          "equity": 117233.61
+        },
+        {
+          "date": "2023-04-28",
+          "equity": 119928.05
+        },
+        {
+          "date": "2023-05-31",
+          "equity": 121140.66
+        },
+        {
+          "date": "2023-06-30",
+          "equity": 124245.64
+        },
+        {
+          "date": "2023-07-31",
+          "equity": 127350.07
+        },
+        {
+          "date": "2023-08-31",
+          "equity": 128264.1
+        },
+        {
+          "date": "2023-09-29",
+          "equity": 126272.75
+        },
+        {
+          "date": "2023-10-31",
+          "equity": 126666.54
+        },
+        {
+          "date": "2023-11-30",
+          "equity": 127165.08
+        },
+        {
+          "date": "2023-12-29",
+          "equity": 127835.5
+        },
+        {
+          "date": "2024-01-31",
+          "equity": 129067.92
+        },
+        {
+          "date": "2024-02-29",
+          "equity": 131601.48
+        },
+        {
+          "date": "2024-03-28",
+          "equity": 132457.79
+        },
+        {
+          "date": "2024-04-30",
+          "equity": 132771.49
+        },
+        {
+          "date": "2024-05-31",
+          "equity": 133685.93
+        },
+        {
+          "date": "2024-06-28",
+          "equity": 134468.27
+        },
+        {
+          "date": "2024-07-31",
+          "equity": 136241.24
+        },
+        {
+          "date": "2024-08-30",
+          "equity": 139136.65
+        },
+        {
+          "date": "2024-09-30",
+          "equity": 139498.65
+        },
+        {
+          "date": "2024-10-31",
+          "equity": 140101.79
+        },
+        {
+          "date": "2024-11-29",
+          "equity": 141201.97
+        },
+        {
+          "date": "2024-12-31",
+          "equity": 139693.69
+        }
+      ],
+      "f": null,
+      "slots": 6,
+      "books": [
+        "rsi2"
+      ],
+      "fixed_size": 6000.0,
+      "cash_floor": 20000.0,
+      "label": "B0 reference \u00b7 RSI2 at the backtest's own rule",
+      "reference": true
+    },
+    "SPY": {
+      "cell": "SPY",
+      "sessions": 1005,
+      "start": "2021-01-04",
+      "end": "2024-12-31",
+      "start_equity": 100000.0,
+      "end_equity": 168313.4,
+      "total_return_pct": 68.31,
+      "cagr_pct": 13.942,
+      "max_drawdown_pct": 24.497,
+      "drawdown": {
+        "peak_date": "2022-01-03",
+        "peak_equity": 131276.86,
+        "trough_date": "2022-10-12",
+        "trough_equity": 99117.72
+      },
+      "calmar": 0.5691,
+      "worst_year": "2022",
+      "worst_year_pct": -18.172,
+      "yearly_returns_pct": {
+        "2021": 30.521,
+        "2022": -18.172,
+        "2023": 26.19,
+        "2024": 24.885
+      },
+      "months": 48,
+      "months_positive": 32,
+      "months_positive_pct": 66.67,
+      "mean_utilisation_pct": 80.975,
+      "trades_taken": 1,
+      "trades_taken_by_book": {
+        "SPY": 1
+      },
+      "trades_skipped": {
+        "slots": 0,
+        "cash": 0
+      },
+      "trades_skipped_total": 0,
+      "max_open": 1,
+      "open_at_end": 1,
+      "book_monthly_correlation": null,
+      "data_notes": {
+        "missing_marks": 0,
+        "missing_mark_symbols": {},
+        "settled_off_calendar": 0,
+        "off_calendar_signals": 0
+      },
+      "monthly_equity": [
+        {
+          "date": "2021-01-29",
+          "equity": 100347.08
+        },
+        {
+          "date": "2021-02-26",
+          "equity": 103137.29
+        },
+        {
+          "date": "2021-03-31",
+          "equity": 107820.24
+        },
+        {
+          "date": "2021-04-30",
+          "equity": 113525.06
+        },
+        {
+          "date": "2021-05-28",
+          "equity": 114270.46
+        },
+        {
+          "date": "2021-06-30",
+          "equity": 116838.43
+        },
+        {
+          "date": "2021-07-30",
+          "equity": 119690.75
+        },
+        {
+          "date": "2021-08-31",
+          "equity": 123252.73
+        },
+        {
+          "date": "2021-09-30",
+          "equity": 117512.2
+        },
+        {
+          "date": "2021-10-29",
+          "equity": 125757.27
+        },
+        {
+          "date": "2021-11-30",
+          "equity": 124746.83
+        },
+        {
+          "date": "2021-12-31",
+          "equity": 130521.15
+        },
+        {
+          "date": "2022-01-31",
+          "equity": 123637.29
+        },
+        {
+          "date": "2022-02-28",
+          "equity": 119987.89
+        },
+        {
+          "date": "2022-03-31",
+          "equity": 124494.1
+        },
+        {
+          "date": "2022-04-29",
+          "equity": 113567.38
+        },
+        {
+          "date": "2022-05-31",
+          "equity": 113823.73
+        },
+        {
+          "date": "2022-06-30",
+          "equity": 104436.77
+        },
+        {
+          "date": "2022-07-29",
+          "equity": 114054.09
+        },
+        {
+          "date": "2022-08-31",
+          "equity": 109400.46
+        },
+        {
+          "date": "2022-09-30",
+          "equity": 99290.06
+        },
+        {
+          "date": "2022-10-31",
+          "equity": 107359.92
+        },
+        {
+          "date": "2022-11-30",
+          "equity": 113328.22
+        },
+        {
+          "date": "2022-12-30",
+          "equity": 106803.26
+        },
+        {
+          "date": "2023-01-31",
+          "equity": 113519.83
+        },
+        {
+          "date": "2023-02-28",
+          "equity": 110665.63
+        },
+        {
+          "date": "2023-03-31",
+          "equity": 114774.09
+        },
+        {
+          "date": "2023-04-28",
+          "equity": 116607.6
+        },
+        {
+          "date": "2023-05-31",
+          "equity": 117145.88
+        },
+        {
+          "date": "2023-06-30",
+          "equity": 124738.6
+        },
+        {
+          "date": "2023-07-31",
+          "equity": 128821.7
+        },
+        {
+          "date": "2023-08-31",
+          "equity": 126728.09
+        },
+        {
+          "date": "2023-09-29",
+          "equity": 120722.03
+        },
+        {
+          "date": "2023-10-31",
+          "equity": 118101.32
+        },
+        {
+          "date": "2023-11-30",
+          "equity": 128889.15
+        },
+        {
+          "date": "2023-12-29",
+          "equity": 134774.55
+        },
+        {
+          "date": "2024-01-31",
+          "equity": 136921.03
+        },
+        {
+          "date": "2024-02-29",
+          "equity": 144066.51
+        },
+        {
+          "date": "2024-03-28",
+          "equity": 148780.93
+        },
+        {
+          "date": "2024-04-30",
+          "equity": 142782.13
+        },
+        {
+          "date": "2024-05-31",
+          "equity": 150004.01
+        },
+        {
+          "date": "2024-06-28",
+          "equity": 155296.86
+        },
+        {
+          "date": "2024-07-31",
+          "equity": 157177.36
+        },
+        {
+          "date": "2024-08-30",
+          "equity": 160849.9
+        },
+        {
+          "date": "2024-09-30",
+          "equity": 164229.22
+        },
+        {
+          "date": "2024-10-31",
+          "equity": 162763.71
+        },
+        {
+          "date": "2024-11-29",
+          "equity": 172469.88
+        },
+        {
+          "date": "2024-12-31",
+          "equity": 168313.4
+        }
+      ],
+      "label": "SPY reference \u00b7 buy and hold",
+      "reference": true
+    }
+  },
+  "develop_report": "docs/reviews/2026-09-10-sizing-study-develop.json",
+  "verdict": {
+    "verdict": "PASS",
+    "failing": []
+  }
+}

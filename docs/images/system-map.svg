@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 714" width="1000" height="714" role="img" aria-labelledby="ti de">
+<title id="ti">System map</title>
+<desc id="de">Four lanes: evening decide, morning act, read-only watch, research.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker></defs>
+<rect width="1000" height="714" rx="12" fill="#0d1117"/>
+<text x="30" y="44" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" fill="#e6edf3" font-weight="700" text-anchor="start">webull-trading-system: how the pieces fit</text>
+<text x="30" y="68" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#8b949e" font-weight="normal" text-anchor="start">One real strategy (RSI2 swing). Decide in the evening, act at the next open, watch read-only.</text>
+<text x="30" y="104" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11" fill="#3fb950" font-weight="700" text-anchor="start" letter-spacing="1.5">1 · EVENING: DECIDE</text>
+<rect x="30" y="116" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="30" y="116" width="4" height="100" rx="2" fill="#3fb950"/>
+<text x="48" y="143" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Daily bars</text>
+<text x="48" y="163" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#3fb950" font-weight="normal" text-anchor="start">webull_api/market_data.py</text>
+<text x="48" y="182" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Webull OHLCV bars at the close;</text>
+<text x="48" y="200" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Tiingo for 20-year history</text>
+<rect x="355" y="116" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="355" y="116" width="4" height="100" rx="2" fill="#3fb950"/>
+<text x="373" y="143" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Evening suite (17:30)</text>
+<text x="373" y="163" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#3fb950" font-weight="normal" text-anchor="start">webull_web/rsi2_real_service.py</text>
+<text x="373" y="182" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Finds RSI(2) &lt; 10 entries and exits.</text>
+<text x="373" y="200" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Queue-only: it never places</text>
+<rect x="680" y="116" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="680" y="116" width="4" height="100" rx="2" fill="#3fb950"/>
+<text x="698" y="143" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Decision queue</text>
+<text x="698" y="163" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#3fb950" font-weight="normal" text-anchor="start">data/activity/ (gitignored)</text>
+<text x="698" y="182" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">One executable row per decision,</text>
+<text x="698" y="200" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">waiting for the next open</text>
+<text x="30" y="254" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11" fill="#d29922" font-weight="700" text-anchor="start" letter-spacing="1.5">2 · MORNING: ACT</text>
+<rect x="30" y="266" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="30" y="266" width="4" height="100" rx="2" fill="#d29922"/>
+<text x="48" y="293" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Autopilot (09:31)</text>
+<text x="48" y="313" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#d29922" font-weight="normal" text-anchor="start">webull_api/autopilot/</text>
+<text x="48" y="332" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Fail-closed gate: enable flag, kill</text>
+<text x="48" y="350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">switch, caps, SPY regime</text>
+<rect x="355" y="266" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="355" y="266" width="4" height="100" rx="2" fill="#d29922"/>
+<text x="373" y="293" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Safety + the write seam</text>
+<text x="373" y="313" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#d29922" font-weight="normal" text-anchor="start">webull_api/safety.py · trading.py</text>
+<text x="373" y="332" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Validates every order. The ONLY</text>
+<text x="373" y="350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">module that can submit one</text>
+<rect x="680" y="266" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="680" y="266" width="4" height="100" rx="2" fill="#d29922"/>
+<text x="698" y="293" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Webull (production)</text>
+<text x="698" y="313" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#d29922" font-weight="normal" text-anchor="start">webull-openapi-python-sdk 2.0.10</text>
+<text x="698" y="332" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Order at the open, then a resting</text>
+<text x="698" y="350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">8% GTC protective stop</text>
+<text x="30" y="404" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11" fill="#58a6ff" font-weight="700" text-anchor="start" letter-spacing="1.5">3 · WATCH: READ-ONLY</text>
+<rect x="30" y="416" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="30" y="416" width="4" height="100" rx="2" fill="#58a6ff"/>
+<text x="48" y="443" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Watchdog + nightly note</text>
+<text x="48" y="463" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#58a6ff" font-weight="normal" text-anchor="start">webull_web/watchdog_service.py</text>
+<text x="48" y="482" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Checks every run happened; the</text>
+<text x="48" y="500" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">note names the trades, to phone</text>
+<rect x="355" y="416" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="355" y="416" width="4" height="100" rx="2" fill="#58a6ff"/>
+<text x="373" y="443" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Feed for the dashboard</text>
+<text x="373" y="463" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#58a6ff" font-weight="normal" text-anchor="start">python -m webull_web.feed_export</text>
+<text x="373" y="482" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">kestrel (separate repo) runs this.</text>
+<text x="373" y="500" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">No web code lives here</text>
+<rect x="680" y="416" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="680" y="416" width="4" height="100" rx="2" fill="#58a6ff"/>
+<text x="698" y="443" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Claude Desktop connectors</text>
+<text x="698" y="463" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#58a6ff" font-weight="normal" text-anchor="start">webull_mcp/ · webull_trade_mcp/</text>
+<text x="698" y="482" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Read-only data and portfolio;</text>
+<text x="698" y="500" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">place_order is codeword-gated</text>
+<text x="30" y="554" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11" fill="#bc8cff" font-weight="700" text-anchor="start" letter-spacing="1.5">4 · RESEARCH: PROVE IT FIRST</text>
+<rect x="30" y="566" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="30" y="566" width="4" height="100" rx="2" fill="#bc8cff"/>
+<text x="48" y="593" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">RSI2 backtests</text>
+<text x="48" y="613" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#bc8cff" font-weight="normal" text-anchor="start">scripts/backtest_rsi2.py</text>
+<text x="48" y="632" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">20-year replay, plus the stop</text>
+<text x="48" y="650" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">and exit-band studies</text>
+<rect x="355" y="566" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="355" y="566" width="4" height="100" rx="2" fill="#bc8cff"/>
+<text x="373" y="593" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Sizing study (S6)</text>
+<text x="373" y="613" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#bc8cff" font-weight="normal" text-anchor="start">scripts/sizing_study.py</text>
+<text x="373" y="632" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Equity / 6 across six shared</text>
+<text x="373" y="650" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">slots: the live sizing rule</text>
+<rect x="680" y="566" width="290" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+<rect x="680" y="566" width="4" height="100" rx="2" fill="#bc8cff"/>
+<text x="698" y="593" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Tests</text>
+<text x="698" y="613" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="12" fill="#bc8cff" font-weight="normal" text-anchor="start">tests/  (~2,080, no network)</text>
+<text x="698" y="632" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Gates, runners, MCPs. Source</text>
+<text x="698" y="650" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">guards prove what cannot place</text>
+<path d="M323,166 L351,166" fill="none" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M648,166 L676,166" fill="none" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M323,316 L351,316" fill="none" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M648,316 L676,316" fill="none" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M825,218 L825,236 L260,236 L260,263" fill="none" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arr)"/>
+<text x="500" y="231" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#8b949e" font-weight="normal" text-anchor="middle">next market open</text>
+<text x="30" y="694" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#8b949e" font-weight="normal" text-anchor="start">Green and amber lanes are the live money path. Blue reads only. Purple never touches the broker.</text>
+</svg>

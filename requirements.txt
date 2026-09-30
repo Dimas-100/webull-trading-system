@@ -1,0 +1,9 @@
+# Human-readable intent (floors). For a REPRODUCIBLE install of the exact tested set
+# (incl. transitive deps like pydantic/starlette via mcp), use the committed lockfile:
+#   pip install -r requirements.txt -c requirements.lock
+# Regenerate the lock after an intentional upgrade: pip freeze > requirements.lock
+webull-openapi-python-sdk==2.0.10
+python-dotenv>=1.0.0
+pytest>=8.0.0
+mcp>=1.2          # the MCP servers (webull_trade_mcp, webull_mcp, ...)
+tzdata>=2024.1    # zoneinfo needs this on Windows (no system tz database); ZoneInfo is used repo-wide

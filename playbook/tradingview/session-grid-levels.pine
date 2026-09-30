@@ -1,0 +1,189 @@
+//@version=6
+// Session Grid Levels -- the levels the session-grid paper session lives on, drawn on the owner's
+// TradingView chart (the Webull-linked one, or any other). WATCHING AID ONLY: nothing here is a
+// strategy, a signal or an order. The ticket comes from scripts/session_grid_live.py; paste its
+// entry and stop into the inputs when it prints (~09:49-09:52 ET).
+//
+// Levels (all in America/New_York, RTH = 09:30-16:00):
+//   PDH / PDL   prior-day RTH high / low (from the daily series, same as the screen's `pdh`)
+//   PMH / PML   pre-market high / low 04:00-09:29 -- needs the chart's Extended Hours ON, else blank
+//   OR15 H / L  09:30-09:44 opening-range high / low (the grid's `or15_h` / `or15_l`; the L is the
+//               ticket's "structure" line)
+//   VWAP        session VWAP from 09:30, hlc3, RTH bars only -- the screen's `_vwap`. NOTE: the
+//               built-in TradingView VWAP anchors at 04:00 when extended hours are shown, so it
+//               will differ from this one until the pre-market volume washes out.
+//   Entry/Stop  the ticket's limit and stop (inputs; 0 = off)
+//   Clock       09:45 check, 09:55 unfilled-cancel, 10:58 machine flat, 11:00 rule flat
+//
+// Alerts: Alt+A -> Condition "Session Grid Levels" -> pick one of the four below -> "Once Per Bar".
+indicator("Session Grid Levels", "SG Levels", overlay = true, max_lines_count = 120, max_labels_count = 60)
+
+// ---- inputs -------------------------------------------------------------------------------------
+gT = "Ticket (from the screen's printout)"
+entryIn = input.float(0.0, "Entry (BUY limit)", minval = 0, step = 0.01, group = gT,
+     tooltip = "The ticket's limit (signal price + 0.05). 0 hides the line.")
+stopIn  = input.float(0.0, "Stop", minval = 0, step = 0.01, group = gT,
+     tooltip = "The ticket's stop (entry - 1%). 0 hides the line.")
+
+gL = "Levels"
+showPD   = input.bool(true, "Prior-day high / low", group = gL)
+showPM   = input.bool(true, "Pre-market high / low (extended hours must be ON)", group = gL)
+showOR   = input.bool(true, "Opening range 09:30-09:45 high / low", group = gL)
+showVWAP = input.bool(true, "Session VWAP from 09:30 (hlc3, RTH only)", group = gL)
+showClock = input.bool(true, "Clock lines (09:45 / 09:55 / 10:58 / 11:00)", group = gL)
+
+gC = "Clock, HHMM in New York time"
+checkHHMM  = input.int(945,  "Check time",            minval = 0, maxval = 2359, group = gC)
+cancelHHMM = input.int(955,  "Unfilled-cancel time",  minval = 0, maxval = 2359, group = gC)
+flatHHMM   = input.int(1058, "Machine flat",          minval = 0, maxval = 2359, group = gC)
+hardHHMM   = input.int(1100, "Rule hard flat",        minval = 0, maxval = 2359, group = gC)
+
+// ---- clock ---------------------------------------------------------------------------------------
+tz = "America/New_York"
+minOfDay = hour(time, tz) * 60 + minute(time, tz)          // minute-of-day of this bar's OPEN, in ET
+toMod(hhmm) => int(hhmm / 100) * 60 + hhmm % 100
+isRTH = minOfDay >= 570 and minOfDay < 960                        // 09:30 .. 15:59
+isPre = minOfDay >= 240 and minOfDay < 570                        // 04:00 .. 09:29
+isOR  = minOfDay >= 570 and minOfDay < 585                        // 09:30 .. 09:44  (15 one-minute bars)
+dayNY = dayofmonth(time, tz) + 100 * month(time, tz)
+newDay = na(dayNY[1]) or dayNY != dayNY[1]
+
+// ---- prior day (daily series = RTH only on TradingView, like the screen's daily inputs) ----------
+[pdH, pdL] = request.security(syminfo.tickerid, "D", [high[1], low[1]], lookahead = barmerge.lookahead_on)
+
+// ---- running state, reset every day ----------------------------------------------------------------
+var float pmH = na
+var float pmL = na
+var float orH = na
+var float orL = na
+var float cumPV = 0.0
+var float cumV  = 0.0
+if newDay
+    pmH := na
+    pmL := na
+    orH := na
+    orL := na
+    cumPV := 0.0
+    cumV  := 0.0
+if isPre
+    pmH := na(pmH) ? high : math.max(pmH, high)
+    pmL := na(pmL) ? low  : math.min(pmL, low)
+if isOR
+    orH := na(orH) ? high : math.max(orH, high)
+    orL := na(orL) ? low  : math.min(orL, low)
+if isRTH
+    cumPV += hlc3 * volume
+    cumV  += volume
+vwap = cumV > 0 ? cumPV / cumV : na
+orDone = minOfDay >= 585                                     // the range is final from the 09:45 bar on
+
+// ---- colours ---------------------------------------------------------------------------------------
+cPD    = color.new(#9aa0a6, 0)     // grey      prior day
+cPM    = color.new(#c58af9, 0)     // violet    pre-market
+cOR    = color.new(#4fc3f7, 0)     // sky       opening range
+cVWAP  = color.new(#ffb300, 0)     // amber     vwap
+cEntry = color.new(#00e676, 0)     // green     entry
+cStop  = color.new(#ff5252, 0)     // red       stop
+cClock = color.new(#78909c, 40)    // slate     clock
+
+// ---- horizontal level lines (one set per day, extended to the right) ---------------------------------
+var line  lPDH = na
+var line  lPDL = na
+var line  lPMH = na
+var line  lPML = na
+var line  lORH = na
+var line  lORL = na
+var line  lEnt = na
+var line  lStp = na
+var label bPDH = na
+var label bPDL = na
+var label bPMH = na
+var label bPML = na
+var label bORH = na
+var label bORL = na
+var label bEnt = na
+var label bStp = na
+
+mk(y, col, sty, w) =>
+    line.new(time, y, time, y, xloc = xloc.bar_time, extend = extend.right, color = col, style = sty, width = w)
+tag(y, txt, col) =>
+    label.new(time, y, txt, xloc = xloc.bar_time, style = label.style_label_left, color = color.new(col, 85),
+         textcolor = col, size = size.small)
+upd(ln, lb, y, txt) =>
+    if not na(ln) and not na(y)
+        line.set_y1(ln, y)
+        line.set_y2(ln, y)
+        line.set_x2(ln, time)
+        label.set_y(lb, y)
+        label.set_x(lb, time)
+        label.set_text(lb, txt)
+
+// prior day + ticket lines start at the first bar of the day
+if newDay
+    if showPD and not na(pdH)
+        lPDH := mk(pdH, cPD, line.style_dashed, 1)
+        bPDH := tag(pdH, "PDH " + str.tostring(pdH, format.mintick), cPD)
+        lPDL := mk(pdL, cPD, line.style_dashed, 1)
+        bPDL := tag(pdL, "PDL " + str.tostring(pdL, format.mintick), cPD)
+    if entryIn > 0
+        lEnt := mk(entryIn, cEntry, line.style_solid, 2)
+        bEnt := tag(entryIn, "ENTRY " + str.tostring(entryIn, format.mintick), cEntry)
+    if stopIn > 0
+        lStp := mk(stopIn, cStop, line.style_solid, 2)
+        bStp := tag(stopIn, "STOP " + str.tostring(stopIn, format.mintick), cStop)
+    lPMH := na
+    lPML := na
+    lORH := na
+    lORL := na
+
+// pre-market range: drawn from the first RTH bar (when it is final)
+if showPM and isRTH and na(lPMH) and not na(pmH)
+    lPMH := mk(pmH, cPM, line.style_dotted, 1)
+    bPMH := tag(pmH, "PMH " + str.tostring(pmH, format.mintick), cPM)
+    lPML := mk(pmL, cPM, line.style_dotted, 1)
+    bPML := tag(pmL, "PML " + str.tostring(pmL, format.mintick), cPM)
+
+// opening range: drawn from the 09:45 bar (when it is final)
+if showOR and orDone and isRTH and na(lORH) and not na(orH)
+    lORH := mk(orH, cOR, line.style_solid, 1)
+    bORH := tag(orH, "OR15 H " + str.tostring(orH, format.mintick), cOR)
+    lORL := mk(orL, cOR, line.style_solid, 1)
+    bORL := tag(orL, "OR15 L (structure) " + str.tostring(orL, format.mintick), cOR)
+
+// keep the labels pinned to the last bar
+upd(lPDH, bPDH, pdH, "PDH " + str.tostring(pdH, format.mintick))
+upd(lPDL, bPDL, pdL, "PDL " + str.tostring(pdL, format.mintick))
+upd(lPMH, bPMH, pmH, "PMH " + str.tostring(pmH, format.mintick))
+upd(lPML, bPML, pmL, "PML " + str.tostring(pmL, format.mintick))
+upd(lORH, bORH, orH, "OR15 H " + str.tostring(orH, format.mintick))
+upd(lORL, bORL, orL, "OR15 L (structure) " + str.tostring(orL, format.mintick))
+upd(lEnt, bEnt, entryIn > 0 ? entryIn : na, "ENTRY " + str.tostring(entryIn, format.mintick))
+upd(lStp, bStp, stopIn > 0 ? stopIn : na, "STOP " + str.tostring(stopIn, format.mintick))
+
+// ---- VWAP (plotted, so it shows as a proper series) ---------------------------------------------------
+plot(showVWAP and isRTH ? vwap : na, "Session VWAP (09:30, hlc3)", color = cVWAP, linewidth = 2, style = plot.style_linebr)
+
+// ---- clock lines -----------------------------------------------------------------------------------
+vline(txt) =>
+    line.new(time, low, time, high, xloc = xloc.bar_time, extend = extend.both, color = cClock, style = line.style_dotted, width = 1)
+    label.new(time, high, txt, xloc = xloc.bar_time, style = label.style_label_down, color = color.new(cClock, 70),
+         textcolor = color.white, size = size.tiny)
+if showClock
+    if minOfDay == toMod(checkHHMM)
+        vline("09:45 check")
+    if minOfDay == toMod(cancelHHMM)
+        vline("09:55 cancel if unfilled")
+    if minOfDay == toMod(flatHHMM)
+        vline("10:58 machine flat")
+    if minOfDay == toMod(hardHHMM)
+        vline("11:00 rule flat")
+
+// ---- alert conditions (create them from Alt+A -> "Session Grid Levels") ------------------------------
+entryCross = entryIn > 0 and isRTH and ta.cross(close, entryIn)
+stopBreak  = stopIn  > 0 and isRTH and ta.crossunder(low, stopIn)
+cancelBar  = isRTH and minOfDay == toMod(cancelHHMM)
+flatBar    = isRTH and minOfDay == toMod(flatHHMM)
+alertcondition(entryCross, "SG entry crossed",  "SG: {{ticker}} crossed the entry level {{close}}")
+alertcondition(stopBreak,  "SG stop broken",    "SG: {{ticker}} low broke the stop level, last {{close}}")
+alertcondition(cancelBar,  "SG 09:55 cancel",   "SG: {{ticker}} 09:55 -- cancel if the entry is still unfilled")
+alertcondition(flatBar,    "SG 10:58 flat",     "SG: {{ticker}} 10:58 -- machine flat now")

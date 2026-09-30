@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 708" width="1000" height="708" role="img" aria-labelledby="ti de">
+<title id="ti">Daily timeline</title>
+<desc id="de">Scheduled runs from the 09:30 open to the 21:00 dead-man deadline.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker></defs>
+<rect width="1000" height="708" rx="12" fill="#0d1117"/>
+<text x="30" y="44" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" fill="#e6edf3" font-weight="700" text-anchor="start">The trading day (Eastern Time)</text>
+<text x="30" y="68" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#8b949e" font-weight="normal" text-anchor="start">Everything is a Windows scheduled task. Weekends and NYSE holidays run nothing that matters.</text>
+<line x1="128" y1="110" x2="128" y2="624" stroke="#30363d" stroke-width="2"/>
+<text x="40" y="118" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">09:30</text>
+<circle cx="128" cy="113" r="6" fill="#8b949e" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="118" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Market open</text>
+<text x="158" y="137" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Resting real orders and protective stops can fill</text>
+<rect x="868" y="101" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="117" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#e6edf3" font-weight="600" text-anchor="middle">market</text>
+<text x="40" y="174" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">09:31</text>
+<circle cx="128" cy="169" r="6" fill="#d29922" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="174" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Autopilot: morning run</text>
+<text x="158" y="193" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Places queued entries at the open; cancel-then-sell for queued exits</text>
+<rect x="868" y="157" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="173" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#d29922" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="230" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">15:45</text>
+<circle cx="128" cy="225" r="6" fill="#d29922" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="230" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Autopilot: retry run</text>
+<text x="158" y="249" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Second chance for anything the morning run could not finish</text>
+<rect x="868" y="213" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="229" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#d29922" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="286" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">16:00</text>
+<circle cx="128" cy="281" r="6" fill="#8b949e" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="286" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Market close</text>
+<text x="158" y="305" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">The daily bar is confirmed</text>
+<rect x="868" y="269" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="285" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#e6edf3" font-weight="600" text-anchor="middle">market</text>
+<text x="40" y="342" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">17:30</text>
+<circle cx="128" cy="337" r="6" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="342" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Evening suite</text>
+<text x="158" y="361" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Net-liq snapshot, RSI2 signals queued for tomorrow, cash flows</text>
+<rect x="868" y="325" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="341" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#3fb950" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="398" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">17:45</text>
+<circle cx="128" cy="393" r="6" fill="#d29922" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="398" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Autopilot: evening run</text>
+<text x="158" y="417" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Reads decisions and runs the entry screen (18:15 backstop)</text>
+<rect x="868" y="381" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="397" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#d29922" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="454" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">18:25</text>
+<circle cx="128" cy="449" r="6" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="454" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Nightly note</text>
+<text x="158" y="473" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Names today's orders, tomorrow's queue and the stops; sent to phone</text>
+<rect x="868" y="437" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="453" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#58a6ff" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="510" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">18:35</text>
+<circle cx="128" cy="505" r="6" fill="#bc8cff" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="510" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Tiingo backfill</text>
+<text x="158" y="529" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Adds today's end-of-day row to the research history</text>
+<rect x="868" y="493" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="509" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#bc8cff" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="566" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">19:00</text>
+<circle cx="128" cy="561" r="6" fill="#58a6ff" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="566" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">Suite watchdog</text>
+<text x="158" y="585" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">Confirms every run above left evidence in the run log</text>
+<rect x="868" y="549" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="565" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#58a6ff" font-weight="600" text-anchor="middle">scheduled</text>
+<text x="40" y="622" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">21:00</text>
+<circle cx="128" cy="617" r="6" fill="#8b949e" stroke="#0d1117" stroke-width="2"/>
+<text x="158" y="622" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="15" fill="#e6edf3" font-weight="600" text-anchor="start">External dead-man deadline</text>
+<text x="158" y="641" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#8b949e" font-weight="normal" text-anchor="start">healthchecks.io alerts if the watchdog never pinged</text>
+<rect x="868" y="605" width="102" height="24" rx="12" fill="#161b22" stroke="#30363d"/>
+<text x="919" y="621" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="11.5" fill="#e6edf3" font-weight="600" text-anchor="middle">external</text>
+<circle cx="40" cy="678" r="5" fill="#3fb950"/>
+<text x="52" y="682" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#8b949e" font-weight="normal" text-anchor="start">decide</text>
+<circle cx="122" cy="678" r="5" fill="#d29922"/>
+<text x="134" y="682" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#8b949e" font-weight="normal" text-anchor="start">act (real orders)</text>
+<circle cx="281" cy="678" r="5" fill="#58a6ff"/>
+<text x="293" y="682" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#8b949e" font-weight="normal" text-anchor="start">watch</text>
+<circle cx="356" cy="678" r="5" fill="#bc8cff"/>
+<text x="368" y="682" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#8b949e" font-weight="normal" text-anchor="start">research</text>
+</svg>

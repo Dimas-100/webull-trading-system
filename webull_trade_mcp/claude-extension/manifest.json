@@ -1,0 +1,30 @@
+{
+  "manifest_version": "0.3",
+  "name": "webull-trade",
+  "display_name": "Webull Trade (order intents)",
+  "version": "1.0.0",
+  "description": "Order-intent channel: draft_order writes a validated, previewed order to data/intents/ (JSON, place it by hand). place_order (opt-in, OFF unless WEBULL_TRADE_CODEWORD is set in .env) directly places a REAL order under a secret codeword + per-order $ cap. Credentials + the codeword load from the repo .env; no secrets stored here.",
+  "author": {
+    "name": "Dimas Diaz"
+  },
+  "server": {
+    "type": "binary",
+    "entry_point": "C:\\path\\to\\webull-trading-system\\.venv\\Scripts\\python.exe",
+    "mcp_config": {
+      "command": "C:\\path\\to\\webull-trading-system\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "webull_trade_mcp"
+      ],
+      "env": {
+        "PYTHONPATH": "C:\\path\\to\\webull-trading-system"
+      }
+    }
+  },
+  "user_config": {},
+  "compatibility": {
+    "platforms": [
+      "win32"
+    ]
+  }
+}

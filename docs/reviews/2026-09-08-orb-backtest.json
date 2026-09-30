@@ -1,0 +1,4855 @@
+{
+ "generated": "2026-09-09T00:52:50+00:00",
+ "source": "tiingo-iex",
+ "window": {
+  "start": "2021-09-01",
+  "end": "2026-09-08"
+ },
+ "fill_model": {
+  "entry_window_min": 10,
+  "entry_fill": "max(trigger, open) if <= limit; else keep working",
+  "stop_fill": "min(stop, open)",
+  "target_fill": "limit at target, no slippage",
+  "same_bar_tie": "stop",
+  "fill_bar": "stop only",
+  "failed_break_exit": "next M1 open",
+  "time_stop_exit": "next M1 open",
+  "hard_flat": "open of the first bar at/after hard_flat",
+  "slippage_per_share": "variant.slippage on entry and market exits",
+  "commission": 0.0,
+  "sizing_cash": "profile.daybook every day"
+ },
+ "cells": {
+  "base": {
+   "variant": {
+    "name": "base",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1694,
+     "win_rate": 0.389,
+     "mean_r": -0.107,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.24,
+     "expectancy_pct": -0.114,
+     "median_minutes": 30,
+     "reasons": {
+      "failed": 752,
+      "time": 2698,
+      "target": 220,
+      "stop": 519,
+      "flat": 169
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 82,
+      "win_rate": 0.374,
+      "mean_r": -0.125,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.198,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 32,
+       "time": 142,
+       "target": 9,
+       "stop": 29,
+       "flat": 7
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 327,
+      "win_rate": 0.432,
+      "mean_r": -0.056,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.14,
+      "expectancy_pct": -0.064,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 462,
+       "failed": 122,
+       "stop": 94,
+       "target": 49,
+       "flat": 30
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 293,
+      "win_rate": 0.348,
+      "mean_r": -0.144,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.17,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 93,
+       "time": 524,
+       "target": 40,
+       "flat": 36,
+       "failed": 150
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 286,
+      "win_rate": 0.369,
+      "mean_r": -0.134,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.165,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 32,
+       "time": 490,
+       "stop": 94,
+       "failed": 133,
+       "flat": 27
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 421,
+      "win_rate": 0.398,
+      "mean_r": -0.111,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.068,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 653,
+       "stop": 130,
+       "failed": 184,
+       "target": 49,
+       "flat": 42
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 285,
+      "win_rate": 0.404,
+      "mean_r": -0.072,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.091,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 131,
+       "time": 427,
+       "stop": 79,
+       "flat": 27,
+       "target": 41
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 353,
+      "win_rate": 0.411,
+      "mean_r": -0.073,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.084,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 61,
+       "failed": 147,
+       "time": 500,
+       "stop": 114,
+       "flat": 37
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1341,
+      "win_rate": 0.383,
+      "mean_r": -0.115,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.122,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 605,
+       "time": 2198,
+       "target": 159,
+       "stop": 405,
+       "flat": 132
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 607,
+      "win_rate": 0.417,
+      "mean_r": -0.068,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.049,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 836,
+       "failed": 274,
+       "stop": 197,
+       "target": 89,
+       "flat": 58
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 491,
+      "win_rate": 0.339,
+      "mean_r": -0.163,
+      "mean_pnl": -0.24,
+      "median_pnl": -0.32,
+      "expectancy_pct": -0.203,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 229,
+       "time": 973,
+       "stop": 139,
+       "flat": 53,
+       "target": 56
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 596,
+      "win_rate": 0.41,
+      "mean_r": -0.088,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.091,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 75,
+       "time": 889,
+       "flat": 58,
+       "stop": 183,
+       "failed": 249
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 347,
+      "win_rate": 0.393,
+      "mean_r": -0.068,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.112,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 219,
+       "time": 554,
+       "stop": 58,
+       "target": 50,
+       "flat": 1
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 259,
+      "win_rate": 0.388,
+      "mean_r": -0.115,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.148,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 430,
+       "stop": 77,
+       "failed": 125,
+       "target": 33,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 225,
+      "win_rate": 0.377,
+      "mean_r": -0.133,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.086,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 378,
+       "stop": 92,
+       "failed": 91,
+       "target": 35,
+       "flat": 1
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 282,
+      "win_rate": 0.413,
+      "mean_r": -0.078,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.19,
+      "expectancy_pct": -0.075,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 37,
+       "time": 464,
+       "stop": 81,
+       "failed": 95,
+       "flat": 5
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 153,
+      "win_rate": 0.382,
+      "mean_r": -0.113,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.118,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 57,
+       "flat": 9,
+       "time": 252,
+       "failed": 64,
+       "target": 19
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 129,
+      "win_rate": 0.352,
+      "mean_r": -0.129,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.123,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 61,
+       "time": 239,
+       "stop": 45,
+       "flat": 4,
+       "target": 17
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 103,
+      "win_rate": 0.383,
+      "mean_r": -0.153,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.171,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 181,
+       "stop": 38,
+       "target": 10,
+       "failed": 36,
+       "flat": 4
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 92,
+      "win_rate": 0.369,
+      "mean_r": -0.15,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.153,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 37,
+       "failed": 32,
+       "time": 163,
+       "flat": 7,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 104,
+      "win_rate": 0.426,
+      "mean_r": -0.095,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.093,
+      "median_minutes": 28,
+      "reasons": {
+       "failed": 29,
+       "target": 9,
+       "flat": 135,
+       "time": 37,
+       "stop": 34
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 430,
+      "win_rate": 0.406,
+      "mean_r": -0.084,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.087,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 653,
+       "stop": 125,
+       "failed": 178,
+       "flat": 51,
+       "target": 51
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 420,
+      "win_rate": 0.397,
+      "mean_r": -0.113,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.128,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 639,
+       "failed": 182,
+       "flat": 38,
+       "stop": 143,
+       "target": 55
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 395,
+      "win_rate": 0.373,
+      "mean_r": -0.117,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 56,
+       "time": 657,
+       "failed": 185,
+       "stop": 130,
+       "flat": 31
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 404,
+      "win_rate": 0.382,
+      "mean_r": -0.11,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.142,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 184,
+       "time": 672,
+       "stop": 108,
+       "target": 50,
+       "flat": 44
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 45,
+      "win_rate": 0.357,
+      "mean_r": -0.116,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": 0.105,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 77,
+       "failed": 23,
+       "stop": 13,
+       "target": 8,
+       "flat": 5
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -12.03,
+    "total_return_pct": -108.02,
+    "max_drawdown_pct": 107.84,
+    "per_year": {
+     "2021": -18.78,
+     "2022": -19.91,
+     "2023": -37.84,
+     "2024": -31.14,
+     "2025": -32.78,
+     "2026": -21.58
+    },
+    "trades": 906,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 104
+    }
+   }
+  },
+  "time45": {
+   "variant": {
+    "name": "time45",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 45,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1704,
+     "win_rate": 0.391,
+     "mean_r": -0.102,
+     "mean_pnl": -0.13,
+     "median_pnl": -0.3,
+     "expectancy_pct": -0.109,
+     "median_minutes": 40,
+     "reasons": {
+      "failed": 946,
+      "time": 1793,
+      "target": 278,
+      "flat": 718,
+      "stop": 623
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 83,
+      "win_rate": 0.379,
+      "mean_r": -0.129,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.36,
+      "expectancy_pct": -0.192,
+      "median_minutes": 43,
+      "reasons": {
+       "failed": 42,
+       "time": 96,
+       "target": 12,
+       "flat": 35,
+       "stop": 34
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 318,
+      "win_rate": 0.42,
+      "mean_r": -0.065,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.07,
+      "median_minutes": 38,
+      "reasons": {
+       "flat": 135,
+       "time": 287,
+       "target": 58,
+       "failed": 166,
+       "stop": 111
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 298,
+      "win_rate": 0.353,
+      "mean_r": -0.146,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.36,
+      "expectancy_pct": -0.165,
+      "median_minutes": 39,
+      "reasons": {
+       "stop": 113,
+       "flat": 136,
+       "time": 354,
+       "target": 49,
+       "failed": 191
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 300,
+      "win_rate": 0.387,
+      "mean_r": -0.119,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.157,
+      "median_minutes": 41,
+      "reasons": {
+       "target": 44,
+       "time": 331,
+       "stop": 117,
+       "failed": 165,
+       "flat": 119
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 425,
+      "win_rate": 0.402,
+      "mean_r": -0.103,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.29,
+      "expectancy_pct": -0.06,
+      "median_minutes": 40,
+      "reasons": {
+       "time": 443,
+       "stop": 153,
+       "failed": 229,
+       "flat": 172,
+       "target": 61
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 280,
+      "win_rate": 0.397,
+      "mean_r": -0.063,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.078,
+      "median_minutes": 39,
+      "reasons": {
+       "failed": 153,
+       "time": 282,
+       "stop": 95,
+       "flat": 121,
+       "target": 54
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 353,
+      "win_rate": 0.411,
+      "mean_r": -0.062,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.063,
+      "median_minutes": 37,
+      "reasons": {
+       "target": 76,
+       "failed": 194,
+       "time": 321,
+       "stop": 134,
+       "flat": 134
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1351,
+      "win_rate": 0.386,
+      "mean_r": -0.112,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.12,
+      "median_minutes": 40,
+      "reasons": {
+       "failed": 752,
+       "time": 1472,
+       "target": 202,
+       "flat": 584,
+       "stop": 489
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 604,
+      "win_rate": 0.415,
+      "mean_r": -0.069,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.05,
+      "median_minutes": 38,
+      "reasons": {
+       "time": 551,
+       "flat": 216,
+       "failed": 334,
+       "stop": 240,
+       "target": 113
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 529,
+      "win_rate": 0.365,
+      "mean_r": -0.149,
+      "mean_pnl": -0.22,
+      "median_pnl": -0.36,
+      "expectancy_pct": -0.18,
+      "median_minutes": 42,
+      "reasons": {
+       "failed": 296,
+       "time": 646,
+       "target": 72,
+       "stop": 176,
+       "flat": 260
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 571,
+      "win_rate": 0.393,
+      "mean_r": -0.089,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.097,
+      "median_minutes": 39,
+      "reasons": {
+       "target": 93,
+       "time": 596,
+       "flat": 242,
+       "stop": 207,
+       "failed": 316
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 348,
+      "win_rate": 0.395,
+      "mean_r": -0.077,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.31,
+      "expectancy_pct": -0.117,
+      "median_minutes": 45,
+      "reasons": {
+       "failed": 275,
+       "time": 468,
+       "stop": 69,
+       "target": 62,
+       "flat": 8
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 259,
+      "win_rate": 0.388,
+      "mean_r": -0.107,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.137,
+      "median_minutes": 45,
+      "reasons": {
+       "time": 358,
+       "target": 48,
+       "stop": 98,
+       "failed": 156,
+       "flat": 8
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 232,
+      "win_rate": 0.389,
+      "mean_r": -0.117,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.071,
+      "median_minutes": 45,
+      "reasons": {
+       "time": 318,
+       "stop": 110,
+       "target": 46,
+       "failed": 117,
+       "flat": 6
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 265,
+      "win_rate": 0.389,
+      "mean_r": -0.083,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.078,
+      "median_minutes": 45,
+      "reasons": {
+       "target": 47,
+       "time": 394,
+       "stop": 109,
+       "failed": 122,
+       "flat": 10
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 161,
+      "win_rate": 0.401,
+      "mean_r": -0.087,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.095,
+      "median_minutes": 45,
+      "reasons": {
+       "stop": 66,
+       "flat": 22,
+       "time": 208,
+       "failed": 80,
+       "target": 25
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 139,
+      "win_rate": 0.38,
+      "mean_r": -0.139,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.46,
+      "expectancy_pct": -0.132,
+      "median_minutes": 42,
+      "reasons": {
+       "failed": 81,
+       "flat": 163,
+       "time": 47,
+       "stop": 56,
+       "target": 19
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 98,
+      "win_rate": 0.364,
+      "mean_r": -0.131,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.146,
+      "median_minutes": 37,
+      "reasons": {
+       "flat": 168,
+       "stop": 43,
+       "target": 12,
+       "failed": 46
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 98,
+      "win_rate": 0.394,
+      "mean_r": -0.14,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.32,
+      "expectancy_pct": -0.144,
+      "median_minutes": 32,
+      "reasons": {
+       "stop": 38,
+       "failed": 40,
+       "flat": 161,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 104,
+      "win_rate": 0.426,
+      "mean_r": -0.095,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.093,
+      "median_minutes": 28,
+      "reasons": {
+       "failed": 29,
+       "target": 9,
+       "flat": 172,
+       "stop": 34
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 430,
+      "win_rate": 0.406,
+      "mean_r": -0.078,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.073,
+      "median_minutes": 40,
+      "reasons": {
+       "time": 412,
+       "stop": 149,
+       "target": 67,
+       "failed": 224,
+       "flat": 206
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 415,
+      "win_rate": 0.393,
+      "mean_r": -0.112,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.128,
+      "median_minutes": 38,
+      "reasons": {
+       "flat": 180,
+       "failed": 233,
+       "time": 410,
+       "stop": 170,
+       "target": 64
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 403,
+      "win_rate": 0.381,
+      "mean_r": -0.116,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.13,
+      "median_minutes": 40,
+      "reasons": {
+       "target": 71,
+       "flat": 156,
+       "failed": 230,
+       "time": 448,
+       "stop": 154
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 412,
+      "win_rate": 0.389,
+      "mean_r": -0.105,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.129,
+      "median_minutes": 42,
+      "reasons": {
+       "failed": 234,
+       "time": 474,
+       "stop": 131,
+       "target": 64,
+       "flat": 155
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 44,
+      "win_rate": 0.349,
+      "mean_r": -0.095,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.3,
+      "expectancy_pct": 0.089,
+      "median_minutes": 36,
+      "reasons": {
+       "time": 49,
+       "failed": 25,
+       "flat": 21,
+       "stop": 19,
+       "target": 12
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -20.82,
+    "total_return_pct": -113.88,
+    "max_drawdown_pct": 113.43,
+    "per_year": {
+     "2021": -18.43,
+     "2022": -34.27,
+     "2023": -39.37,
+     "2024": -21.92,
+     "2025": -29.71,
+     "2026": -27.12
+    },
+    "trades": 913,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 109
+    }
+   }
+  },
+  "pdh_cap": {
+   "variant": {
+    "name": "pdh_cap",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "pdh_cap",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4747,
+     "wins": 1838,
+     "win_rate": 0.387,
+     "mean_r": -0.108,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.24,
+     "expectancy_pct": -0.117,
+     "median_minutes": 30,
+     "reasons": {
+      "failed": 835,
+      "time": 2930,
+      "target": 241,
+      "stop": 562,
+      "flat": 179
+     },
+     "tickets": 19677,
+     "unfilled": 14930,
+     "unfilled_rate": 0.759
+    },
+    "by_year": {
+     "2021": {
+      "n": 238,
+      "wins": 91,
+      "win_rate": 0.382,
+      "mean_r": -0.13,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.19,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 34,
+       "time": 154,
+       "target": 9,
+       "stop": 33,
+       "flat": 8
+      }
+     },
+     "2022": {
+      "n": 819,
+      "wins": 353,
+      "win_rate": 0.431,
+      "mean_r": -0.055,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.14,
+      "expectancy_pct": -0.064,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 497,
+       "failed": 137,
+       "stop": 100,
+       "target": 54,
+       "flat": 31
+      }
+     },
+     "2023": {
+      "n": 912,
+      "wins": 312,
+      "win_rate": 0.342,
+      "mean_r": -0.152,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.177,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 561,
+       "stop": 97,
+       "target": 42,
+       "flat": 37,
+       "failed": 175
+      }
+     },
+     "2024": {
+      "n": 854,
+      "wins": 318,
+      "win_rate": 0.372,
+      "mean_r": -0.133,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.168,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 36,
+       "time": 539,
+       "stop": 103,
+       "failed": 146,
+       "flat": 30
+      }
+     },
+     "2025": {
+      "n": 1149,
+      "wins": 453,
+      "win_rate": 0.394,
+      "mean_r": -0.114,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.073,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 708,
+       "stop": 141,
+       "failed": 201,
+       "target": 54,
+       "flat": 45
+      }
+     },
+     "2026": {
+      "n": 775,
+      "wins": 311,
+      "win_rate": 0.401,
+      "mean_r": -0.071,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.089,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 142,
+       "time": 471,
+       "stop": 88,
+       "flat": 28,
+       "target": 46
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 939,
+      "wins": 385,
+      "win_rate": 0.41,
+      "mean_r": -0.071,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.083,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 65,
+       "failed": 164,
+       "stop": 119,
+       "time": 552,
+       "flat": 39
+      }
+     },
+     "on": {
+      "n": 3808,
+      "wins": 1453,
+      "win_rate": 0.382,
+      "mean_r": -0.118,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 671,
+       "time": 2378,
+       "target": 176,
+       "stop": 443,
+       "flat": 140
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1583,
+      "wins": 656,
+      "win_rate": 0.414,
+      "mean_r": -0.075,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.056,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 907,
+       "failed": 299,
+       "stop": 219,
+       "target": 98,
+       "flat": 60
+      }
+     },
+     "low": {
+      "n": 1581,
+      "wins": 532,
+      "win_rate": 0.336,
+      "mean_r": -0.165,
+      "mean_pnl": -0.24,
+      "median_pnl": -0.32,
+      "expectancy_pct": -0.209,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 261,
+       "time": 1055,
+       "stop": 149,
+       "flat": 58,
+       "target": 58
+      }
+     },
+     "mid": {
+      "n": 1583,
+      "wins": 650,
+      "win_rate": 0.411,
+      "mean_r": -0.085,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.087,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 85,
+       "time": 968,
+       "flat": 61,
+       "stop": 194,
+       "failed": 275
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 965,
+      "wins": 377,
+      "win_rate": 0.391,
+      "mean_r": -0.075,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.121,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 240,
+       "time": 603,
+       "stop": 66,
+       "target": 55,
+       "flat": 1
+      }
+     },
+     "09:50": {
+      "n": 712,
+      "wins": 277,
+      "win_rate": 0.389,
+      "mean_r": -0.105,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.138,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 455,
+       "stop": 80,
+       "failed": 135,
+       "target": 39,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 660,
+      "wins": 251,
+      "win_rate": 0.38,
+      "mean_r": -0.133,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.086,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 423,
+       "stop": 101,
+       "failed": 99,
+       "target": 36,
+       "flat": 1
+      }
+     },
+     "10:00": {
+      "n": 747,
+      "wins": 307,
+      "win_rate": 0.411,
+      "mean_r": -0.077,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.076,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 41,
+       "time": 508,
+       "stop": 87,
+       "failed": 106,
+       "flat": 5
+      }
+     },
+     "10:05": {
+      "n": 441,
+      "wins": 164,
+      "win_rate": 0.372,
+      "mean_r": -0.123,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.124,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 62,
+       "flat": 9,
+       "time": 277,
+       "failed": 72,
+       "target": 21
+      }
+     },
+     "10:10": {
+      "n": 398,
+      "wins": 144,
+      "win_rate": 0.362,
+      "mean_r": -0.125,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.125,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 65,
+       "time": 261,
+       "stop": 50,
+       "flat": 4,
+       "target": 18
+      }
+     },
+     "10:15": {
+      "n": 301,
+      "wins": 113,
+      "win_rate": 0.375,
+      "mean_r": -0.16,
+      "mean_pnl": -0.21,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.182,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 200,
+       "stop": 42,
+       "target": 11,
+       "failed": 44,
+       "flat": 4
+      }
+     },
+     "10:20": {
+      "n": 260,
+      "wins": 93,
+      "win_rate": 0.358,
+      "mean_r": -0.172,
+      "mean_pnl": -0.21,
+      "median_pnl": -0.31,
+      "expectancy_pct": -0.17,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 39,
+       "failed": 39,
+       "time": 165,
+       "flat": 7,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 263,
+      "wins": 112,
+      "win_rate": 0.426,
+      "mean_r": -0.096,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.095,
+      "median_minutes": 28,
+      "reasons": {
+       "failed": 35,
+       "target": 10,
+       "flat": 145,
+       "time": 38,
+       "stop": 35
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 3099,
+      "filled": 965,
+      "unfilled_rate": 0.689
+     },
+     "09:50": {
+      "tickets": 2845,
+      "filled": 712,
+      "unfilled_rate": 0.75
+     },
+     "09:55": {
+      "tickets": 2382,
+      "filled": 660,
+      "unfilled_rate": 0.723
+     },
+     "10:00": {
+      "tickets": 3143,
+      "filled": 747,
+      "unfilled_rate": 0.762
+     },
+     "10:05": {
+      "tickets": 2148,
+      "filled": 441,
+      "unfilled_rate": 0.795
+     },
+     "10:10": {
+      "tickets": 1842,
+      "filled": 398,
+      "unfilled_rate": 0.784
+     },
+     "10:15": {
+      "tickets": 1525,
+      "filled": 301,
+      "unfilled_rate": 0.803
+     },
+     "10:20": {
+      "tickets": 1394,
+      "filled": 260,
+      "unfilled_rate": 0.813
+     },
+     "10:25": {
+      "tickets": 1299,
+      "filled": 263,
+      "unfilled_rate": 0.798
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1148,
+      "wins": 463,
+      "win_rate": 0.403,
+      "mean_r": -0.086,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.088,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 714,
+       "stop": 134,
+       "failed": 193,
+       "flat": 52,
+       "target": 55
+      }
+     },
+     "q2": {
+      "n": 1153,
+      "wins": 447,
+      "win_rate": 0.388,
+      "mean_r": -0.122,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.141,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 692,
+       "failed": 206,
+       "flat": 38,
+       "stop": 156,
+       "target": 61
+      }
+     },
+     "q3": {
+      "n": 1154,
+      "wins": 435,
+      "win_rate": 0.377,
+      "mean_r": -0.113,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.124,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 62,
+       "time": 711,
+       "failed": 206,
+       "stop": 139,
+       "flat": 36
+      }
+     },
+     "q4": {
+      "n": 1152,
+      "wins": 443,
+      "win_rate": 0.385,
+      "mean_r": -0.111,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.138,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 201,
+       "time": 730,
+       "stop": 120,
+       "target": 54,
+       "flat": 47
+      }
+     },
+     "unknown": {
+      "n": 140,
+      "wins": 50,
+      "win_rate": 0.357,
+      "mean_r": -0.12,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": 0.069,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 83,
+       "failed": 29,
+       "stop": 13,
+       "flat": 6,
+       "target": 9
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -22.87,
+    "total_return_pct": -115.25,
+    "max_drawdown_pct": 115.17,
+    "per_year": {
+     "2021": -24.49,
+     "2022": -28.53,
+     "2023": -34.71,
+     "2024": -29.28,
+     "2025": -34.92,
+     "2026": -20.94
+    },
+    "trades": 921,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 111
+    }
+   }
+  },
+  "no_failed": {
+   "variant": {
+    "name": "no_failed",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": false,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1742,
+     "win_rate": 0.4,
+     "mean_r": -0.111,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.18,
+     "expectancy_pct": -0.119,
+     "median_minutes": 30,
+     "reasons": {
+      "stop": 843,
+      "time": 3115,
+      "target": 223,
+      "flat": 177
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 84,
+      "win_rate": 0.384,
+      "mean_r": -0.129,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.201,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 44,
+       "time": 159,
+       "target": 9,
+       "flat": 7
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 338,
+      "win_rate": 0.446,
+      "mean_r": -0.059,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.08,
+      "expectancy_pct": -0.065,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 531,
+       "stop": 146,
+       "target": 49,
+       "flat": 31
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 301,
+      "win_rate": 0.357,
+      "mean_r": -0.155,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.182,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 166,
+       "time": 600,
+       "target": 40,
+       "flat": 37
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 291,
+      "win_rate": 0.375,
+      "mean_r": -0.139,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.171,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 32,
+       "time": 567,
+       "stop": 149,
+       "flat": 28
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 431,
+      "win_rate": 0.407,
+      "mean_r": -0.113,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.068,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 755,
+       "stop": 206,
+       "flat": 45,
+       "target": 52
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 297,
+      "win_rate": 0.421,
+      "mean_r": -0.075,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.15,
+      "expectancy_pct": -0.093,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 503,
+       "stop": 132,
+       "flat": 29,
+       "target": 41
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 366,
+      "win_rate": 0.426,
+      "mean_r": -0.069,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.14,
+      "expectancy_pct": -0.074,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 62,
+       "time": 581,
+       "stop": 177,
+       "flat": 39
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1376,
+      "win_rate": 0.393,
+      "mean_r": -0.121,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.13,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 666,
+       "time": 2534,
+       "target": 161,
+       "flat": 138
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 635,
+      "win_rate": 0.437,
+      "mean_r": -0.068,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.1,
+      "expectancy_pct": -0.047,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 973,
+       "stop": 328,
+       "target": 92,
+       "flat": 61
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 497,
+      "win_rate": 0.343,
+      "mean_r": -0.169,
+      "mean_pnl": -0.25,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.213,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 230,
+       "time": 1107,
+       "flat": 57,
+       "target": 56
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 610,
+      "win_rate": 0.42,
+      "mean_r": -0.096,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.16,
+      "expectancy_pct": -0.096,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 75,
+       "time": 1035,
+       "flat": 59,
+       "stop": 285
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 364,
+      "win_rate": 0.413,
+      "mean_r": -0.072,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.11,
+      "expectancy_pct": -0.114,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 681,
+       "stop": 149,
+       "target": 51,
+       "flat": 1
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 270,
+      "win_rate": 0.404,
+      "mean_r": -0.109,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.17,
+      "expectancy_pct": -0.143,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 506,
+       "stop": 126,
+       "target": 33,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 233,
+      "win_rate": 0.39,
+      "mean_r": -0.134,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.09,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 427,
+       "stop": 132,
+       "target": 37,
+       "flat": 1
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 283,
+      "win_rate": 0.415,
+      "mean_r": -0.083,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.16,
+      "expectancy_pct": -0.078,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 37,
+       "time": 523,
+       "stop": 117,
+       "flat": 5
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 159,
+      "win_rate": 0.397,
+      "mean_r": -0.125,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.13,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 89,
+       "flat": 9,
+       "time": 284,
+       "target": 19
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 130,
+      "win_rate": 0.355,
+      "mean_r": -0.147,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.145,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 270,
+       "stop": 75,
+       "flat": 4,
+       "target": 17
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 105,
+      "win_rate": 0.39,
+      "mean_r": -0.171,
+      "mean_pnl": -0.21,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.185,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 195,
+       "stop": 60,
+       "target": 10,
+       "flat": 4
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 94,
+      "win_rate": 0.378,
+      "mean_r": -0.146,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.21,
+      "expectancy_pct": -0.145,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 46,
+       "time": 186,
+       "flat": 7,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 104,
+      "win_rate": 0.426,
+      "mean_r": -0.101,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.19,
+      "expectancy_pct": -0.094,
+      "median_minutes": 28,
+      "reasons": {
+       "stop": 49,
+       "target": 9,
+       "flat": 143,
+       "time": 43
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 447,
+      "win_rate": 0.422,
+      "mean_r": -0.082,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.14,
+      "expectancy_pct": -0.083,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 750,
+       "stop": 203,
+       "flat": 53,
+       "target": 52
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 430,
+      "win_rate": 0.407,
+      "mean_r": -0.123,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.135,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 735,
+       "flat": 40,
+       "stop": 226,
+       "target": 56
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 403,
+      "win_rate": 0.381,
+      "mean_r": -0.122,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.133,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 56,
+       "time": 765,
+       "stop": 204,
+       "flat": 34
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 416,
+      "win_rate": 0.393,
+      "mean_r": -0.114,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.148,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 183,
+       "time": 780,
+       "target": 51,
+       "flat": 44
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 46,
+      "win_rate": 0.365,
+      "mean_r": -0.14,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.21,
+      "expectancy_pct": 0.078,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 85,
+       "stop": 27,
+       "target": 8,
+       "flat": 6
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -7.32,
+    "total_return_pct": -104.88,
+    "max_drawdown_pct": 104.78,
+    "per_year": {
+     "2021": -18.89,
+     "2022": -16.41,
+     "2023": -38.01,
+     "2024": -33.27,
+     "2025": -32.61,
+     "2026": -18.13
+    },
+    "trades": 914,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 97
+    }
+   }
+  },
+  "hold": {
+   "variant": {
+    "name": "hold",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": null,
+    "target": "2R",
+    "failed_break_exit": false,
+    "hard_flat": "15:55:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1631,
+     "win_rate": 0.374,
+     "mean_r": -0.117,
+     "mean_pnl": -0.15,
+     "median_pnl": -0.91,
+     "expectancy_pct": -0.121,
+     "median_minutes": 111,
+     "reasons": {
+      "stop": 2267,
+      "target": 900,
+      "flat": 1191
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 65,
+      "win_rate": 0.297,
+      "mean_r": -0.281,
+      "mean_pnl": -0.35,
+      "median_pnl": -1.02,
+      "expectancy_pct": -0.336,
+      "median_minutes": 104,
+      "reasons": {
+       "stop": 128,
+       "target": 41,
+       "flat": 50
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 294,
+      "win_rate": 0.388,
+      "mean_r": -0.096,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.95,
+      "expectancy_pct": -0.107,
+      "median_minutes": 89,
+      "reasons": {
+       "target": 176,
+       "stop": 406,
+       "flat": 175
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 297,
+      "win_rate": 0.352,
+      "mean_r": -0.176,
+      "mean_pnl": -0.23,
+      "median_pnl": -0.96,
+      "expectancy_pct": -0.188,
+      "median_minutes": 122,
+      "reasons": {
+       "stop": 449,
+       "flat": 239,
+       "target": 155
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 299,
+      "win_rate": 0.385,
+      "mean_r": -0.089,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.85,
+      "expectancy_pct": -0.12,
+      "median_minutes": 112,
+      "reasons": {
+       "target": 170,
+       "flat": 220,
+       "stop": 386
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 408,
+      "win_rate": 0.386,
+      "mean_r": -0.09,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.042,
+      "median_minutes": 118,
+      "reasons": {
+       "target": 203,
+       "stop": 533,
+       "flat": 322
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 268,
+      "win_rate": 0.38,
+      "mean_r": -0.09,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.95,
+      "expectancy_pct": -0.111,
+      "median_minutes": 113,
+      "reasons": {
+       "stop": 365,
+       "target": 155,
+       "flat": 185
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 347,
+      "win_rate": 0.404,
+      "mean_r": -0.059,
+      "mean_pnl": -0.06,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.048,
+      "median_minutes": 85,
+      "reasons": {
+       "target": 203,
+       "stop": 448,
+       "flat": 208
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1284,
+      "win_rate": 0.367,
+      "mean_r": -0.131,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.95,
+      "expectancy_pct": -0.139,
+      "median_minutes": 118,
+      "reasons": {
+       "stop": 1819,
+       "target": 697,
+       "flat": 983
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 547,
+      "win_rate": 0.376,
+      "mean_r": -0.067,
+      "mean_pnl": -0.06,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.042,
+      "median_minutes": 80,
+      "reasons": {
+       "stop": 807,
+       "flat": 285,
+       "target": 362
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 544,
+      "win_rate": 0.375,
+      "mean_r": -0.159,
+      "mean_pnl": -0.23,
+      "median_pnl": -0.95,
+      "expectancy_pct": -0.198,
+      "median_minutes": 157,
+      "reasons": {
+       "stop": 692,
+       "target": 241,
+       "flat": 517
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 540,
+      "win_rate": 0.371,
+      "mean_r": -0.125,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.98,
+      "expectancy_pct": -0.124,
+      "median_minutes": 113,
+      "reasons": {
+       "target": 297,
+       "stop": 768,
+       "flat": 389
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 327,
+      "win_rate": 0.371,
+      "mean_r": -0.122,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.98,
+      "expectancy_pct": -0.173,
+      "median_minutes": 128,
+      "reasons": {
+       "stop": 453,
+       "flat": 261,
+       "target": 168
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 276,
+      "win_rate": 0.413,
+      "mean_r": -0.047,
+      "mean_pnl": -0.06,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.08,
+      "median_minutes": 109,
+      "reasons": {
+       "stop": 334,
+       "target": 154,
+       "flat": 180
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 214,
+      "win_rate": 0.358,
+      "mean_r": -0.139,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.95,
+      "expectancy_pct": -0.101,
+      "median_minutes": 95,
+      "reasons": {
+       "flat": 153,
+       "stop": 316,
+       "target": 128
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 255,
+      "win_rate": 0.374,
+      "mean_r": -0.133,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.104,
+      "median_minutes": 124,
+      "reasons": {
+       "target": 123,
+       "stop": 345,
+       "flat": 214
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 146,
+      "win_rate": 0.364,
+      "mean_r": -0.1,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.122,
+      "median_minutes": 104,
+      "reasons": {
+       "stop": 213,
+       "target": 91,
+       "flat": 97
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 115,
+      "win_rate": 0.314,
+      "mean_r": -0.26,
+      "mean_pnl": -0.3,
+      "median_pnl": -1.0,
+      "expectancy_pct": -0.23,
+      "median_minutes": 84,
+      "reasons": {
+       "stop": 214,
+       "flat": 89,
+       "target": 63
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 102,
+      "win_rate": 0.379,
+      "mean_r": -0.123,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.148,
+      "median_minutes": 109,
+      "reasons": {
+       "flat": 71,
+       "stop": 141,
+       "target": 57
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 104,
+      "win_rate": 0.418,
+      "mean_r": -0.036,
+      "mean_pnl": -0.02,
+      "median_pnl": -0.85,
+      "expectancy_pct": -0.012,
+      "median_minutes": 130,
+      "reasons": {
+       "stop": 123,
+       "flat": 69,
+       "target": 57
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 92,
+      "win_rate": 0.377,
+      "mean_r": -0.082,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.066,
+      "median_minutes": 97,
+      "reasons": {
+       "stop": 128,
+       "target": 59,
+       "flat": 57
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 413,
+      "win_rate": 0.39,
+      "mean_r": -0.074,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.075,
+      "median_minutes": 92,
+      "reasons": {
+       "stop": 548,
+       "flat": 269,
+       "target": 241
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 372,
+      "win_rate": 0.352,
+      "mean_r": -0.159,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.96,
+      "expectancy_pct": -0.152,
+      "median_minutes": 105,
+      "reasons": {
+       "stop": 576,
+       "target": 216,
+       "flat": 265
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 393,
+      "win_rate": 0.371,
+      "mean_r": -0.124,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.91,
+      "expectancy_pct": -0.14,
+      "median_minutes": 110,
+      "reasons": {
+       "target": 214,
+       "flat": 291,
+       "stop": 554
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 407,
+      "win_rate": 0.385,
+      "mean_r": -0.106,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.9,
+      "expectancy_pct": -0.138,
+      "median_minutes": 127,
+      "reasons": {
+       "stop": 527,
+       "target": 204,
+       "flat": 327
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 46,
+      "win_rate": 0.365,
+      "mean_r": -0.161,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.86,
+      "expectancy_pct": 0.043,
+      "median_minutes": 107,
+      "reasons": {
+       "stop": 62,
+       "target": 25,
+       "flat": 39
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -20.12,
+    "total_return_pct": -113.41,
+    "max_drawdown_pct": 113.46,
+    "per_year": {
+     "2021": -17.48,
+     "2022": -45.47,
+     "2023": -44.88,
+     "2024": -13.7,
+     "2025": -11.6,
+     "2026": -36.99
+    },
+    "trades": 899,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 114
+    }
+   }
+  },
+  "trail": {
+   "variant": {
+    "name": "trail",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": true,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1726,
+     "win_rate": 0.396,
+     "mean_r": -0.111,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.22,
+     "expectancy_pct": -0.122,
+     "median_minutes": 30,
+     "reasons": {
+      "failed": 748,
+      "time": 2452,
+      "target": 166,
+      "stop": 513,
+      "trail": 344,
+      "flat": 135
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 84,
+      "win_rate": 0.384,
+      "mean_r": -0.132,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.201,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 32,
+       "time": 128,
+       "target": 6,
+       "stop": 29,
+       "trail": 19,
+       "flat": 5
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 331,
+      "win_rate": 0.437,
+      "mean_r": -0.063,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.12,
+      "expectancy_pct": -0.072,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 412,
+       "failed": 121,
+       "trail": 70,
+       "stop": 93,
+       "target": 39,
+       "flat": 22
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 297,
+      "win_rate": 0.352,
+      "mean_r": -0.149,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.174,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 93,
+       "time": 485,
+       "trail": 51,
+       "target": 32,
+       "flat": 33,
+       "failed": 149
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 294,
+      "win_rate": 0.379,
+      "mean_r": -0.134,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.164,
+      "median_minutes": 30,
+      "reasons": {
+       "trail": 53,
+       "time": 451,
+       "stop": 93,
+       "target": 25,
+       "failed": 133,
+       "flat": 21
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 428,
+      "win_rate": 0.405,
+      "mean_r": -0.114,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.21,
+      "expectancy_pct": -0.087,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 594,
+       "stop": 126,
+       "failed": 184,
+       "target": 36,
+       "trail": 85,
+       "flat": 33
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 292,
+      "win_rate": 0.414,
+      "mean_r": -0.079,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.098,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 129,
+       "time": 382,
+       "stop": 79,
+       "trail": 66,
+       "flat": 21,
+       "target": 28
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 358,
+      "win_rate": 0.417,
+      "mean_r": -0.085,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.094,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 47,
+       "failed": 147,
+       "time": 445,
+       "stop": 113,
+       "trail": 79,
+       "flat": 28
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1368,
+      "win_rate": 0.391,
+      "mean_r": -0.117,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.129,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 601,
+       "time": 2007,
+       "target": 119,
+       "stop": 400,
+       "trail": 265,
+       "flat": 107
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 630,
+      "win_rate": 0.433,
+      "mean_r": -0.068,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.15,
+      "expectancy_pct": -0.05,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 719,
+       "failed": 270,
+       "stop": 194,
+       "trail": 164,
+       "target": 67,
+       "flat": 40
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 497,
+      "win_rate": 0.343,
+      "mean_r": -0.168,
+      "mean_pnl": -0.24,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.217,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 229,
+       "time": 920,
+       "trail": 70,
+       "stop": 139,
+       "flat": 49,
+       "target": 43
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 599,
+      "win_rate": 0.412,
+      "mean_r": -0.097,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.1,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 56,
+       "time": 813,
+       "trail": 110,
+       "stop": 180,
+       "failed": 249,
+       "flat": 46
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 353,
+      "win_rate": 0.4,
+      "mean_r": -0.074,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.118,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 218,
+       "time": 505,
+       "stop": 58,
+       "trail": 63,
+       "target": 38
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 263,
+      "win_rate": 0.394,
+      "mean_r": -0.118,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.145,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 392,
+       "trail": 53,
+       "stop": 75,
+       "failed": 124,
+       "target": 24
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 229,
+      "win_rate": 0.384,
+      "mean_r": -0.141,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.119,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 336,
+       "stop": 91,
+       "trail": 54,
+       "failed": 91,
+       "target": 25
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 286,
+      "win_rate": 0.419,
+      "mean_r": -0.082,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.16,
+      "expectancy_pct": -0.079,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 27,
+       "time": 437,
+       "trail": 42,
+       "stop": 80,
+       "failed": 95,
+       "flat": 1
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 158,
+      "win_rate": 0.394,
+      "mean_r": -0.117,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 57,
+       "trail": 46,
+       "time": 219,
+       "failed": 64,
+       "target": 14,
+       "flat": 1
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 133,
+      "win_rate": 0.363,
+      "mean_r": -0.122,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.119,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 60,
+       "time": 216,
+       "trail": 30,
+       "stop": 45,
+       "target": 15
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 105,
+      "win_rate": 0.39,
+      "mean_r": -0.167,
+      "mean_pnl": -0.21,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.184,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 165,
+       "stop": 37,
+       "trail": 23,
+       "failed": 36,
+       "target": 7,
+       "flat": 1
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 93,
+      "win_rate": 0.373,
+      "mean_r": -0.163,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.161,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 37,
+       "failed": 31,
+       "time": 152,
+       "trail": 18,
+       "target": 9,
+       "flat": 2
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 106,
+      "win_rate": 0.434,
+      "mean_r": -0.092,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.096,
+      "median_minutes": 27,
+      "reasons": {
+       "failed": 29,
+       "trail": 15,
+       "flat": 130,
+       "time": 30,
+       "target": 7,
+       "stop": 33
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 437,
+      "win_rate": 0.413,
+      "mean_r": -0.091,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.095,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 590,
+       "stop": 125,
+       "trail": 90,
+       "failed": 177,
+       "flat": 37,
+       "target": 39
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 430,
+      "win_rate": 0.407,
+      "mean_r": -0.115,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.131,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 581,
+       "failed": 180,
+       "trail": 85,
+       "stop": 140,
+       "target": 43,
+       "flat": 28
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 403,
+      "win_rate": 0.381,
+      "mean_r": -0.123,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.132,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 42,
+       "time": 599,
+       "failed": 184,
+       "trail": 76,
+       "stop": 130,
+       "flat": 28
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 410,
+      "win_rate": 0.388,
+      "mean_r": -0.113,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.145,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 184,
+       "time": 611,
+       "stop": 106,
+       "trail": 82,
+       "target": 37,
+       "flat": 38
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 46,
+      "win_rate": 0.365,
+      "mean_r": -0.122,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.01,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 71,
+       "failed": 23,
+       "trail": 11,
+       "stop": 12,
+       "target": 5,
+       "flat": 4
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -20.22,
+    "total_return_pct": -113.48,
+    "max_drawdown_pct": 113.24,
+    "per_year": {
+     "2021": -19.59,
+     "2022": -20.43,
+     "2023": -38.53,
+     "2024": -33.17,
+     "2025": -33.01,
+     "2026": -25.49
+    },
+    "trades": 907,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 101
+    }
+   }
+  },
+  "two_trades": {
+   "variant": {
+    "name": "two_trades",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.01,
+    "max_trades_per_day": 2
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1694,
+     "win_rate": 0.389,
+     "mean_r": -0.107,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.24,
+     "expectancy_pct": -0.114,
+     "median_minutes": 30,
+     "reasons": {
+      "failed": 752,
+      "time": 2698,
+      "target": 220,
+      "stop": 519,
+      "flat": 169
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 82,
+      "win_rate": 0.374,
+      "mean_r": -0.125,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.198,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 32,
+       "time": 142,
+       "target": 9,
+       "stop": 29,
+       "flat": 7
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 327,
+      "win_rate": 0.432,
+      "mean_r": -0.056,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.14,
+      "expectancy_pct": -0.064,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 462,
+       "failed": 122,
+       "stop": 94,
+       "target": 49,
+       "flat": 30
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 293,
+      "win_rate": 0.348,
+      "mean_r": -0.144,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.17,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 93,
+       "time": 524,
+       "target": 40,
+       "flat": 36,
+       "failed": 150
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 286,
+      "win_rate": 0.369,
+      "mean_r": -0.134,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.165,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 32,
+       "time": 490,
+       "stop": 94,
+       "failed": 133,
+       "flat": 27
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 421,
+      "win_rate": 0.398,
+      "mean_r": -0.111,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.068,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 653,
+       "stop": 130,
+       "failed": 184,
+       "target": 49,
+       "flat": 42
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 285,
+      "win_rate": 0.404,
+      "mean_r": -0.072,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.091,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 131,
+       "time": 427,
+       "stop": 79,
+       "flat": 27,
+       "target": 41
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 353,
+      "win_rate": 0.411,
+      "mean_r": -0.073,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.084,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 61,
+       "failed": 147,
+       "time": 500,
+       "stop": 114,
+       "flat": 37
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1341,
+      "win_rate": 0.383,
+      "mean_r": -0.115,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.122,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 605,
+       "time": 2198,
+       "target": 159,
+       "stop": 405,
+       "flat": 132
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 607,
+      "win_rate": 0.417,
+      "mean_r": -0.068,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.18,
+      "expectancy_pct": -0.049,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 836,
+       "failed": 274,
+       "stop": 197,
+       "target": 89,
+       "flat": 58
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 491,
+      "win_rate": 0.339,
+      "mean_r": -0.163,
+      "mean_pnl": -0.24,
+      "median_pnl": -0.32,
+      "expectancy_pct": -0.203,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 229,
+       "time": 973,
+       "stop": 139,
+       "flat": 53,
+       "target": 56
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 596,
+      "win_rate": 0.41,
+      "mean_r": -0.088,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.091,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 75,
+       "time": 889,
+       "flat": 58,
+       "stop": 183,
+       "failed": 249
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 347,
+      "win_rate": 0.393,
+      "mean_r": -0.068,
+      "mean_pnl": -0.1,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.112,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 219,
+       "time": 554,
+       "stop": 58,
+       "target": 50,
+       "flat": 1
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 259,
+      "win_rate": 0.388,
+      "mean_r": -0.115,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.148,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 430,
+       "stop": 77,
+       "failed": 125,
+       "target": 33,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 225,
+      "win_rate": 0.377,
+      "mean_r": -0.133,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.086,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 378,
+       "stop": 92,
+       "failed": 91,
+       "target": 35,
+       "flat": 1
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 282,
+      "win_rate": 0.413,
+      "mean_r": -0.078,
+      "mean_pnl": -0.09,
+      "median_pnl": -0.19,
+      "expectancy_pct": -0.075,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 37,
+       "time": 464,
+       "stop": 81,
+       "failed": 95,
+       "flat": 5
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 153,
+      "win_rate": 0.382,
+      "mean_r": -0.113,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.118,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 57,
+       "flat": 9,
+       "time": 252,
+       "failed": 64,
+       "target": 19
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 129,
+      "win_rate": 0.352,
+      "mean_r": -0.129,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.123,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 61,
+       "time": 239,
+       "stop": 45,
+       "flat": 4,
+       "target": 17
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 103,
+      "win_rate": 0.383,
+      "mean_r": -0.153,
+      "mean_pnl": -0.2,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.171,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 181,
+       "stop": 38,
+       "target": 10,
+       "failed": 36,
+       "flat": 4
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 92,
+      "win_rate": 0.369,
+      "mean_r": -0.15,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.153,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 37,
+       "failed": 32,
+       "time": 163,
+       "flat": 7,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 104,
+      "win_rate": 0.426,
+      "mean_r": -0.095,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.093,
+      "median_minutes": 28,
+      "reasons": {
+       "failed": 29,
+       "target": 9,
+       "flat": 135,
+       "time": 37,
+       "stop": 34
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 430,
+      "win_rate": 0.406,
+      "mean_r": -0.084,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.087,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 653,
+       "stop": 125,
+       "failed": 178,
+       "flat": 51,
+       "target": 51
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 420,
+      "win_rate": 0.397,
+      "mean_r": -0.113,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.128,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 639,
+       "failed": 182,
+       "flat": 38,
+       "stop": 143,
+       "target": 55
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 395,
+      "win_rate": 0.373,
+      "mean_r": -0.117,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 56,
+       "time": 657,
+       "failed": 185,
+       "stop": 130,
+       "flat": 31
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 404,
+      "win_rate": 0.382,
+      "mean_r": -0.11,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.142,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 184,
+       "time": 672,
+       "stop": 108,
+       "target": 50,
+       "flat": 44
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 45,
+      "win_rate": 0.357,
+      "mean_r": -0.116,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": 0.105,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 77,
+       "failed": 23,
+       "stop": 13,
+       "target": 8,
+       "flat": 5
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -25.26,
+    "total_return_pct": -116.84,
+    "max_drawdown_pct": 116.46,
+    "per_year": {
+     "2021": -17.35,
+     "2022": -22.58,
+     "2023": -46.85,
+     "2024": -35.29,
+     "2025": -33.38,
+     "2026": -19.81
+    },
+    "trades": 1062,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 64,
+     "week_loss": 102
+    }
+   }
+  },
+  "slip2": {
+   "variant": {
+    "name": "slip2",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": true,
+    "slippage": 0.02,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 4358,
+     "wins": 1392,
+     "win_rate": 0.319,
+     "mean_r": -0.215,
+     "mean_pnl": -0.3,
+     "median_pnl": -0.4,
+     "expectancy_pct": -0.246,
+     "median_minutes": 30,
+     "reasons": {
+      "failed": 752,
+      "time": 2732,
+      "target": 204,
+      "stop": 519,
+      "flat": 151
+     },
+     "tickets": 18222,
+     "unfilled": 13864,
+     "unfilled_rate": 0.761
+    },
+    "by_year": {
+     "2021": {
+      "n": 219,
+      "wins": 70,
+      "win_rate": 0.32,
+      "mean_r": -0.226,
+      "mean_pnl": -0.34,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.326,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 32,
+       "time": 143,
+       "target": 9,
+       "stop": 29,
+       "flat": 6
+      }
+     },
+     "2022": {
+      "n": 757,
+      "wins": 265,
+      "win_rate": 0.35,
+      "mean_r": -0.164,
+      "mean_pnl": -0.22,
+      "median_pnl": -0.27,
+      "expectancy_pct": -0.186,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 466,
+       "failed": 122,
+       "stop": 94,
+       "target": 48,
+       "flat": 27
+      }
+     },
+     "2023": {
+      "n": 843,
+      "wins": 239,
+      "win_rate": 0.284,
+      "mean_r": -0.251,
+      "mean_pnl": -0.35,
+      "median_pnl": -0.48,
+      "expectancy_pct": -0.304,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 93,
+       "time": 528,
+       "target": 37,
+       "flat": 35,
+       "failed": 150
+      }
+     },
+     "2024": {
+      "n": 776,
+      "wins": 240,
+      "win_rate": 0.309,
+      "mean_r": -0.245,
+      "mean_pnl": -0.34,
+      "median_pnl": -0.41,
+      "expectancy_pct": -0.301,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 27,
+       "time": 499,
+       "stop": 94,
+       "failed": 133,
+       "flat": 23
+      }
+     },
+     "2025": {
+      "n": 1058,
+      "wins": 346,
+      "win_rate": 0.327,
+      "mean_r": -0.22,
+      "mean_pnl": -0.3,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.201,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 664,
+       "stop": 130,
+       "failed": 184,
+       "target": 45,
+       "flat": 35
+      }
+     },
+     "2026": {
+      "n": 705,
+      "wins": 232,
+      "win_rate": 0.329,
+      "mean_r": -0.182,
+      "mean_pnl": -0.25,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.221,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 131,
+       "time": 432,
+       "stop": 79,
+       "flat": 25,
+       "target": 38
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 859,
+      "wins": 288,
+      "win_rate": 0.335,
+      "mean_r": -0.182,
+      "mean_pnl": -0.25,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.209,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 60,
+       "failed": 147,
+       "time": 505,
+       "stop": 114,
+       "flat": 33
+      }
+     },
+     "on": {
+      "n": 3499,
+      "wins": 1104,
+      "win_rate": 0.316,
+      "mean_r": -0.223,
+      "mean_pnl": -0.31,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.255,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 605,
+       "time": 2227,
+       "target": 144,
+       "stop": 405,
+       "flat": 118
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 1454,
+      "wins": 535,
+      "win_rate": 0.368,
+      "mean_r": -0.155,
+      "mean_pnl": -0.17,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.127,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 848,
+       "failed": 274,
+       "stop": 197,
+       "target": 84,
+       "flat": 51
+      }
+     },
+     "low": {
+      "n": 1450,
+      "wins": 365,
+      "win_rate": 0.252,
+      "mean_r": -0.295,
+      "mean_pnl": -0.46,
+      "median_pnl": -0.54,
+      "expectancy_pct": -0.407,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 229,
+       "time": 982,
+       "stop": 139,
+       "flat": 49,
+       "target": 51
+      }
+     },
+     "mid": {
+      "n": 1454,
+      "wins": 492,
+      "win_rate": 0.338,
+      "mean_r": -0.195,
+      "mean_pnl": -0.25,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.204,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 69,
+       "time": 902,
+       "stop": 183,
+       "failed": 249,
+       "flat": 51
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 882,
+      "wins": 290,
+      "win_rate": 0.329,
+      "mean_r": -0.17,
+      "mean_pnl": -0.25,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.243,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 219,
+       "time": 559,
+       "stop": 58,
+       "target": 46
+      }
+     },
+     "09:50": {
+      "n": 668,
+      "wins": 212,
+      "win_rate": 0.317,
+      "mean_r": -0.221,
+      "mean_pnl": -0.32,
+      "median_pnl": -0.42,
+      "expectancy_pct": -0.278,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 432,
+       "stop": 77,
+       "failed": 125,
+       "target": 31,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 597,
+      "wins": 180,
+      "win_rate": 0.302,
+      "mean_r": -0.254,
+      "mean_pnl": -0.35,
+      "median_pnl": -0.45,
+      "expectancy_pct": -0.228,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 384,
+       "stop": 92,
+       "failed": 91,
+       "target": 30
+      }
+     },
+     "10:00": {
+      "n": 682,
+      "wins": 247,
+      "win_rate": 0.362,
+      "mean_r": -0.181,
+      "mean_pnl": -0.24,
+      "median_pnl": -0.33,
+      "expectancy_pct": -0.204,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 35,
+       "time": 470,
+       "stop": 81,
+       "failed": 95,
+       "flat": 1
+      }
+     },
+     "10:05": {
+      "n": 401,
+      "wins": 125,
+      "win_rate": 0.312,
+      "mean_r": -0.223,
+      "mean_pnl": -0.3,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.245,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 57,
+       "time": 258,
+       "failed": 64,
+       "target": 17,
+       "flat": 5
+      }
+     },
+     "10:10": {
+      "n": 366,
+      "wins": 107,
+      "win_rate": 0.292,
+      "mean_r": -0.232,
+      "mean_pnl": -0.31,
+      "median_pnl": -0.43,
+      "expectancy_pct": -0.246,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 61,
+       "time": 240,
+       "stop": 45,
+       "flat": 3,
+       "target": 17
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 77,
+      "win_rate": 0.286,
+      "mean_r": -0.268,
+      "mean_pnl": -0.36,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.303,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 183,
+       "stop": 38,
+       "target": 9,
+       "failed": 36,
+       "flat": 3
+      }
+     },
+     "10:20": {
+      "n": 249,
+      "wins": 70,
+      "win_rate": 0.281,
+      "mean_r": -0.268,
+      "mean_pnl": -0.36,
+      "median_pnl": -0.45,
+      "expectancy_pct": -0.29,
+      "median_minutes": 30,
+      "reasons": {
+       "stop": 37,
+       "failed": 32,
+       "time": 168,
+       "flat": 2,
+       "target": 10
+      }
+     },
+     "10:25": {
+      "n": 244,
+      "wins": 84,
+      "win_rate": 0.344,
+      "mean_r": -0.212,
+      "mean_pnl": -0.27,
+      "median_pnl": -0.33,
+      "expectancy_pct": -0.22,
+      "median_minutes": 28,
+      "reasons": {
+       "failed": 29,
+       "target": 9,
+       "flat": 134,
+       "time": 38,
+       "stop": 34
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 2878,
+      "filled": 882,
+      "unfilled_rate": 0.694
+     },
+     "09:50": {
+      "tickets": 2645,
+      "filled": 668,
+      "unfilled_rate": 0.747
+     },
+     "09:55": {
+      "tickets": 2212,
+      "filled": 597,
+      "unfilled_rate": 0.73
+     },
+     "10:00": {
+      "tickets": 2896,
+      "filled": 682,
+      "unfilled_rate": 0.765
+     },
+     "10:05": {
+      "tickets": 1986,
+      "filled": 401,
+      "unfilled_rate": 0.798
+     },
+     "10:10": {
+      "tickets": 1712,
+      "filled": 366,
+      "unfilled_rate": 0.786
+     },
+     "10:15": {
+      "tickets": 1388,
+      "filled": 269,
+      "unfilled_rate": 0.806
+     },
+     "10:20": {
+      "tickets": 1307,
+      "filled": 249,
+      "unfilled_rate": 0.809
+     },
+     "10:25": {
+      "tickets": 1198,
+      "filled": 244,
+      "unfilled_rate": 0.796
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1058,
+      "wins": 364,
+      "win_rate": 0.344,
+      "mean_r": -0.192,
+      "mean_pnl": -0.26,
+      "median_pnl": -0.35,
+      "expectancy_pct": -0.214,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 662,
+       "stop": 125,
+       "failed": 178,
+       "flat": 44,
+       "target": 49
+      }
+     },
+     "q2": {
+      "n": 1057,
+      "wins": 339,
+      "win_rate": 0.321,
+      "mean_r": -0.223,
+      "mean_pnl": -0.31,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.258,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 651,
+       "failed": 182,
+       "stop": 143,
+       "target": 48,
+       "flat": 33
+      }
+     },
+     "q3": {
+      "n": 1059,
+      "wins": 336,
+      "win_rate": 0.317,
+      "mean_r": -0.223,
+      "mean_pnl": -0.3,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.252,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 54,
+       "time": 661,
+       "failed": 185,
+       "stop": 130,
+       "flat": 29
+      }
+     },
+     "q4": {
+      "n": 1058,
+      "wins": 316,
+      "win_rate": 0.299,
+      "mean_r": -0.221,
+      "mean_pnl": -0.31,
+      "median_pnl": -0.4,
+      "expectancy_pct": -0.283,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 184,
+       "time": 681,
+       "stop": 108,
+       "target": 45,
+       "flat": 40
+      }
+     },
+     "unknown": {
+      "n": 126,
+      "wins": 37,
+      "win_rate": 0.294,
+      "mean_r": -0.225,
+      "mean_pnl": -0.31,
+      "median_pnl": -0.44,
+      "expectancy_pct": -0.039,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 77,
+       "failed": 23,
+       "stop": 13,
+       "target": 8,
+       "flat": 5
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": -158.49,
+    "total_return_pct": -205.66,
+    "max_drawdown_pct": 203.9,
+    "per_year": {
+     "2021": -28.45,
+     "2022": -47.25,
+     "2023": -64.61,
+     "2024": -65.47,
+     "2025": -59.08,
+     "2026": -43.63
+    },
+    "trades": 890,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 123
+    }
+   }
+  },
+  "no_volume_gate": {
+   "variant": {
+    "name": "no_volume_gate",
+    "profile": "Profile(name='plan-v1', daybook=150.0, max_notional=155.0, risk_target=1.5, risk_min=0.75, risk_max=3.0, day_loss=4.5, week_loss=9.0, price_min=5.0, price_max=30.0)",
+    "time_stop_min": 30,
+    "target": "2R",
+    "failed_break_exit": true,
+    "hard_flat": "11:00:00",
+    "trail_after_1r": false,
+    "volume_gate": false,
+    "slippage": 0.01,
+    "max_trades_per_day": 1
+   },
+   "per_signal": {
+    "all": {
+     "n": 7221,
+     "wins": 2724,
+     "win_rate": 0.377,
+     "mean_r": -0.104,
+     "mean_pnl": -0.14,
+     "median_pnl": -0.24,
+     "expectancy_pct": -0.114,
+     "median_minutes": 30,
+     "reasons": {
+      "time": 4353,
+      "failed": 1969,
+      "target": 303,
+      "stop": 463,
+      "flat": 133
+     },
+     "tickets": 24646,
+     "unfilled": 17425,
+     "unfilled_rate": 0.707
+    },
+    "by_year": {
+     "2021": {
+      "n": 378,
+      "wins": 137,
+      "win_rate": 0.362,
+      "mean_r": -0.137,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.33,
+      "expectancy_pct": -0.149,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 238,
+       "failed": 105,
+       "target": 10,
+       "stop": 23,
+       "flat": 2
+      }
+     },
+     "2022": {
+      "n": 1264,
+      "wins": 499,
+      "win_rate": 0.395,
+      "mean_r": -0.086,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.19,
+      "expectancy_pct": -0.108,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 763,
+       "target": 54,
+       "failed": 338,
+       "stop": 87,
+       "flat": 22
+      }
+     },
+     "2023": {
+      "n": 1431,
+      "wins": 499,
+      "win_rate": 0.349,
+      "mean_r": -0.14,
+      "mean_pnl": -0.19,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.166,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 405,
+       "stop": 91,
+       "time": 859,
+       "flat": 23,
+       "target": 53
+      }
+     },
+     "2024": {
+      "n": 1293,
+      "wins": 473,
+      "win_rate": 0.366,
+      "mean_r": -0.126,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.137,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 43,
+       "time": 802,
+       "failed": 338,
+       "flat": 24,
+       "stop": 86
+      }
+     },
+     "2025": {
+      "n": 1677,
+      "wins": 629,
+      "win_rate": 0.375,
+      "mean_r": -0.097,
+      "mean_pnl": -0.13,
+      "median_pnl": -0.26,
+      "expectancy_pct": -0.078,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 979,
+       "failed": 458,
+       "flat": 41,
+       "target": 89,
+       "stop": 110
+      }
+     },
+     "2026": {
+      "n": 1178,
+      "wins": 487,
+      "win_rate": 0.413,
+      "mean_r": -0.052,
+      "mean_pnl": -0.07,
+      "median_pnl": -0.16,
+      "expectancy_pct": -0.069,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 325,
+       "time": 712,
+       "flat": 21,
+       "stop": 66,
+       "target": 54
+      }
+     }
+    },
+    "by_regime": {
+     "off": {
+      "n": 1486,
+      "wins": 582,
+      "win_rate": 0.392,
+      "mean_r": -0.098,
+      "mean_pnl": -0.13,
+      "median_pnl": -0.22,
+      "expectancy_pct": -0.105,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 881,
+       "failed": 392,
+       "stop": 119,
+       "target": 60,
+       "flat": 34
+      }
+     },
+     "on": {
+      "n": 5735,
+      "wins": 2142,
+      "win_rate": 0.373,
+      "mean_r": -0.105,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.116,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 3472,
+       "failed": 1577,
+       "target": 243,
+       "stop": 344,
+       "flat": 99
+      }
+     }
+    },
+    "by_price_tercile": {
+     "high": {
+      "n": 2409,
+      "wins": 965,
+      "win_rate": 0.401,
+      "mean_r": -0.073,
+      "mean_pnl": -0.08,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.061,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 1369,
+       "failed": 707,
+       "target": 123,
+       "stop": 170,
+       "flat": 40
+      }
+     },
+     "low": {
+      "n": 2403,
+      "wins": 807,
+      "win_rate": 0.336,
+      "mean_r": -0.149,
+      "mean_pnl": -0.21,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.187,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 602,
+       "target": 73,
+       "time": 1555,
+       "flat": 47,
+       "stop": 126
+      }
+     },
+     "mid": {
+      "n": 2409,
+      "wins": 952,
+      "win_rate": 0.395,
+      "mean_r": -0.089,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.21,
+      "expectancy_pct": -0.093,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 1429,
+       "target": 107,
+       "failed": 660,
+       "stop": 167,
+       "flat": 46
+      }
+     }
+    },
+    "by_signal_time": {
+     "09:45": {
+      "n": 2539,
+      "wins": 972,
+      "win_rate": 0.383,
+      "mean_r": -0.1,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 1554,
+       "failed": 680,
+       "stop": 183,
+       "target": 115,
+       "flat": 7
+      }
+     },
+     "09:50": {
+      "n": 1267,
+      "wins": 487,
+      "win_rate": 0.384,
+      "mean_r": -0.084,
+      "mean_pnl": -0.12,
+      "median_pnl": -0.25,
+      "expectancy_pct": -0.112,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 770,
+       "target": 66,
+       "failed": 344,
+       "stop": 84,
+       "flat": 3
+      }
+     },
+     "09:55": {
+      "n": 947,
+      "wins": 337,
+      "win_rate": 0.356,
+      "mean_r": -0.125,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.28,
+      "expectancy_pct": -0.097,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 44,
+       "time": 561,
+       "failed": 285,
+       "stop": 56,
+       "flat": 1
+      }
+     },
+     "10:00": {
+      "n": 792,
+      "wins": 314,
+      "win_rate": 0.396,
+      "mean_r": -0.085,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.21,
+      "expectancy_pct": -0.085,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 519,
+       "failed": 203,
+       "stop": 37,
+       "target": 29,
+       "flat": 4
+      }
+     },
+     "10:05": {
+      "n": 505,
+      "wins": 191,
+      "win_rate": 0.378,
+      "mean_r": -0.114,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.116,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 121,
+       "time": 316,
+       "stop": 44,
+       "target": 17,
+       "flat": 7
+      }
+     },
+     "10:10": {
+      "n": 409,
+      "wins": 140,
+      "win_rate": 0.342,
+      "mean_r": -0.132,
+      "mean_pnl": -0.15,
+      "median_pnl": -0.3,
+      "expectancy_pct": -0.126,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 238,
+       "failed": 130,
+       "stop": 22,
+       "target": 16,
+       "flat": 3
+      }
+     },
+     "10:15": {
+      "n": 269,
+      "wins": 105,
+      "win_rate": 0.39,
+      "mean_r": -0.126,
+      "mean_pnl": -0.16,
+      "median_pnl": -0.16,
+      "expectancy_pct": -0.136,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 65,
+       "time": 181,
+       "stop": 15,
+       "target": 4,
+       "flat": 4
+      }
+     },
+     "10:20": {
+      "n": 268,
+      "wins": 94,
+      "win_rate": 0.351,
+      "mean_r": -0.108,
+      "mean_pnl": -0.13,
+      "median_pnl": -0.23,
+      "expectancy_pct": -0.109,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 173,
+       "failed": 74,
+       "flat": 5,
+       "target": 9,
+       "stop": 7
+      }
+     },
+     "10:25": {
+      "n": 225,
+      "wins": 84,
+      "win_rate": 0.373,
+      "mean_r": -0.129,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.107,
+      "median_minutes": 27,
+      "reasons": {
+       "failed": 67,
+       "target": 3,
+       "time": 41,
+       "flat": 99,
+       "stop": 15
+      }
+     }
+    },
+    "tickets_by_signal_time": {
+     "09:45": {
+      "tickets": 7807,
+      "filled": 2539,
+      "unfilled_rate": 0.675
+     },
+     "09:50": {
+      "tickets": 4426,
+      "filled": 1267,
+      "unfilled_rate": 0.714
+     },
+     "09:55": {
+      "tickets": 2848,
+      "filled": 947,
+      "unfilled_rate": 0.667
+     },
+     "10:00": {
+      "tickets": 2981,
+      "filled": 792,
+      "unfilled_rate": 0.734
+     },
+     "10:05": {
+      "tickets": 1946,
+      "filled": 505,
+      "unfilled_rate": 0.74
+     },
+     "10:10": {
+      "tickets": 1491,
+      "filled": 409,
+      "unfilled_rate": 0.726
+     },
+     "10:15": {
+      "tickets": 1164,
+      "filled": 269,
+      "unfilled_rate": 0.769
+     },
+     "10:20": {
+      "tickets": 1112,
+      "filled": 268,
+      "unfilled_rate": 0.759
+     },
+     "10:25": {
+      "tickets": 871,
+      "filled": 225,
+      "unfilled_rate": 0.742
+     }
+    },
+    "by_volume_quartile": {
+     "q1": {
+      "n": 1781,
+      "wins": 700,
+      "win_rate": 0.393,
+      "mean_r": -0.088,
+      "mean_pnl": -0.11,
+      "median_pnl": -0.2,
+      "expectancy_pct": -0.088,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 1116,
+       "target": 65,
+       "failed": 460,
+       "stop": 107,
+       "flat": 33
+      }
+     },
+     "q2": {
+      "n": 1785,
+      "wins": 640,
+      "win_rate": 0.359,
+      "mean_r": -0.136,
+      "mean_pnl": -0.18,
+      "median_pnl": -0.32,
+      "expectancy_pct": -0.144,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 1024,
+       "failed": 524,
+       "stop": 138,
+       "target": 68,
+       "flat": 31
+      }
+     },
+     "q3": {
+      "n": 1780,
+      "wins": 672,
+      "win_rate": 0.378,
+      "mean_r": -0.095,
+      "mean_pnl": -0.13,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.112,
+      "median_minutes": 30,
+      "reasons": {
+       "target": 78,
+       "time": 1057,
+       "failed": 509,
+       "stop": 97,
+       "flat": 39
+      }
+     },
+     "q4": {
+      "n": 1787,
+      "wins": 683,
+      "win_rate": 0.382,
+      "mean_r": -0.095,
+      "mean_pnl": -0.13,
+      "median_pnl": -0.24,
+      "expectancy_pct": -0.127,
+      "median_minutes": 30,
+      "reasons": {
+       "failed": 456,
+       "time": 1102,
+       "target": 87,
+       "stop": 115,
+       "flat": 27
+      }
+     },
+     "unknown": {
+      "n": 88,
+      "wins": 29,
+      "win_rate": 0.33,
+      "mean_r": -0.115,
+      "mean_pnl": -0.14,
+      "median_pnl": -0.24,
+      "expectancy_pct": 0.217,
+      "median_minutes": 30,
+      "reasons": {
+       "time": 54,
+       "failed": 20,
+       "target": 5,
+       "stop": 6,
+       "flat": 3
+      }
+     }
+    }
+   },
+   "book": {
+    "start": 150.0,
+    "end": 9.74,
+    "total_return_pct": -93.51,
+    "max_drawdown_pct": 96.17,
+    "per_year": {
+     "2021": -2.32,
+     "2022": -26.53,
+     "2023": -41.81,
+     "2024": -24.55,
+     "2025": -36.2,
+     "2026": -8.85
+    },
+    "trades": 966,
+    "breakers": {
+     "day_loss": 0,
+     "two_strike": 0,
+     "week_loss": 120
+    }
+   }
+  }
+ },
+ "sessions": 1259,
+ "profiles": {
+  "plan-v1": {
+   "daybook": 150.0,
+   "price_min": 5.0,
+   "price_max": 30.0,
+   "max_notional": 155.0
+  }
+ },
+ "universe_size_by_year": {
+  "plan-v1": {
+   "2021": {
+    "min": 125,
+    "median": 148,
+    "max": 165
+   },
+   "2022": {
+    "min": 134,
+    "median": 163,
+    "max": 213
+   },
+   "2023": {
+    "min": 135,
+    "median": 157,
+    "max": 199
+   },
+   "2024": {
+    "min": 146,
+    "median": 173,
+    "max": 215
+   },
+   "2025": {
+    "min": 188,
+    "median": 258,
+    "max": 310
+   },
+   "2026": {
+    "min": 0,
+    "median": 301,
+    "max": 328
+   }
+  }
+ },
+ "coverage": {
+  "plan-v1": {
+   "symbol_days_expected": 251336,
+   "symbol_days_with_bars": 232317,
+   "symbol_days_unparseable": 0
+  }
+ }
+}

@@ -1,0 +1,69 @@
+# ─── Secrets — NEVER commit these ───────────────────────────────────────────
+# A secret committed even once lives in git history forever. Keep them out.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*_secret*
+*secret*.json
+credentials*.json
+token*.json
+# Webull SDK 2FA token store (conf/token.txt by default, or WEBULL_OPENAPI_TOKEN_DIR)
+conf/
+.webull-tokens/
+# Sandbox (PaperTrade) token store — separate from prod by design (webull_api/sandbox/)
+.webull-tokens-uat/
+
+# ─── Python virtual environments ────────────────────────────────────────────
+venv/
+.venv/
+# Isolated venv for the SnapTrade portfolio MCP (its SDK conflicts with the Webull SDK)
+.venv-snaptrade/
+env/
+ENV/
+
+# ─── Python bytecode / caches ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Logs / local scratch ───────────────────────────────────────────────────
+*.log
+# rotated SDK logs (e.g. webull_data_sdk.log.2026-06-12_15) — contain the app key
+*.log.*
+logs/
+.DS_Store
+# Playwright MCP verification artifacts (snapshots/screenshots)
+.playwright-mcp/
+
+# ─── IDE / editor ───────────────────────────────────────────────────────────
+.idea/
+*.swp
+
+# ─── Frontend (web/) ────────────────────────────────────────────────────────
+node_modules/          # any node_modules, incl. a stray one accidentally created at the repo root
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+# ─── Canonical runtime data stores (personal data; spec 2026-07-11) ─────────
+# paper/ activity/ journal/ lab/ intents/ plans/ practice/ strategies/ live under data/.
+# The OLD root-level store dirs are deliberately NOT ignored anymore: if a stale module
+# recreates one, it shows up as untracked noise in git status — that's the tripwire.
+/data/
+# Autopilot — daily state/audit logs/kill-file are personal data (and the kill-file must never sync via git)
+/autopilot/
+
+# stray root node_modules (web/ has its own) + Claude Code local settings/worktrees
+/node_modules/
+/.claude/
+.superpowers/

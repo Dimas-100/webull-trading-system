@@ -1,0 +1,30 @@
+{
+  "manifest_version": "0.3",
+  "name": "webull-options",
+  "display_name": "Webull Options Data",
+  "version": "1.0.0",
+  "description": "Read-only option market data (live expirations, full chain with bid/ask/IV/greeks/open-interest, contract snapshots) via the local webull_mcp server. Credentials load from the repo .env; no secrets are stored here.",
+  "author": {
+    "name": "Dimas Diaz"
+  },
+  "server": {
+    "type": "binary",
+    "entry_point": "C:\\path\\to\\webull-trading-system\\.venv\\Scripts\\python.exe",
+    "mcp_config": {
+      "command": "C:\\path\\to\\webull-trading-system\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "webull_mcp"
+      ],
+      "env": {
+        "PYTHONPATH": "C:\\path\\to\\webull-trading-system"
+      }
+    }
+  },
+  "user_config": {},
+  "compatibility": {
+    "platforms": [
+      "win32"
+    ]
+  }
+}
